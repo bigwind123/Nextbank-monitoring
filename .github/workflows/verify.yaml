@@ -1,0 +1,29 @@
+name: verify-platform
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  deploy-and-verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -v
+      - run: python -m scripts.validate
+      - run: sudo sysctl -w vm.max_map_count=1048576
+      - run: python -m scripts.platform init
+      - run: python -m scripts.platform config
+      - run: python -m scripts.platform up
+      - run: python -m scripts.platform check
+      - if: failure()
+        run: python -m scripts.diagnostics
+      - if: always()
+        run: python -m scripts.platform down

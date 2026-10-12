@@ -1,0 +1,20 @@
+apm-server:
+  host: ${APM_LISTEN}
+  auth.secret_token: ${APM_SECRET}
+  ssl.enabled: true
+  ssl.certificate: /runtime/certs/apm/apm.crt
+  ssl.key: /runtime/certs/apm/apm.key
+  rum.enabled: false
+  kibana:
+    enabled: true
+    host: ${KIBANA_BASE}
+    username: ${FLEET_OPERATOR}
+    password: ${FLEET_OPERATOR_PASSWORD}
+    ssl.certificate_authorities: [/runtime/certs/ca/ca.crt]
+output.kafka:
+  hosts: ${KAFKA_BROKERS_JSON}
+  topic: 'apm-%{[processor.event]}'
+  required_acks: -1
+  partition.hash.hash: ["trace.id"]
+  max_message_bytes: 1000000
+logging.level: info

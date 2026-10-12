@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elasticsearch-coordination-1
+  namespace: observability
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elasticsearch-coordination-1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: elasticsearch-coordination-1
+    spec:
+      containers:
+      - name: elasticsearch
+        image: docker.elastic.co/elasticsearch/elasticsearch:8.19.19
+        ports:
+        - containerPort: 9200
+        - containerPort: 9300
+        resources:
+          requests:
+            memory: 1Gi
+            cpu: 500m
+          limits:
+            memory: 2Gi
+        volumeMounts:
+        - name: configuration
+          mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
+          subPath: elasticsearch.yml
+        - name: data
+          mountPath: /usr/share/elasticsearch/data
+      volumes:
+      - name: configuration
+        configMap:
+          name: elasticsearch-coordination-1
+      - name: data
+        persistentVolumeClaim:
+          claimName: elasticsearch-coordination-1

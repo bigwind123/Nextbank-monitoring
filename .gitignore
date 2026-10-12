@@ -1,0 +1,14 @@
+.runtime/
+.local/
+.venv/
+__pycache__/
+*.pyc
+*.pem
+*.key
+*.p12
+*.env
+operator.json
+*.db
+*.egg-info/
+build/
+dist/

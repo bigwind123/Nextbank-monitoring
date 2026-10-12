@@ -1,0 +1,3635 @@
+[
+  {
+    "id": "rule-001",
+    "strategy": "Disk",
+    "default_enabled": true,
+    "inputs": [],
+    "rule": {
+      "name": "rule-001",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 2,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 500,
+      "timeframe": {
+        "minutes": 5
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "range": {
+            "system.filesystem.used.pct": {
+              "gt": 0.85
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "Disk",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(system.filesystem.used.pct)f",
+        "%(system.filesystem.mount_point)s"
+      ],
+      "fail_on_non_zero_exit": true,
+      "query_key": "host.name"
+    }
+  },
+  {
+    "id": "rule-002",
+    "strategy": "Disk",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_002_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-002",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 2,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 500,
+      "timeframe": {
+        "minutes": 5
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_002_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "Disk",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(system.filesystem.used.pct)f",
+        "%(system.filesystem.mount_point)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-003",
+    "strategy": "Disk",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_003_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-003",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 2,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 500,
+      "timeframe": {
+        "minutes": 5
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_003_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "Disk",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(system.filesystem.used.pct)f",
+        "%(system.filesystem.mount_point)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-004",
+    "strategy": "Disk",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_004_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-004",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 2,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 500,
+      "timeframe": {
+        "minutes": 5
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_004_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "Disk",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(system.filesystem.used.pct)f",
+        "%(system.filesystem.mount_point)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-005",
+    "strategy": "CPU",
+    "default_enabled": true,
+    "inputs": [],
+    "rule": {
+      "name": "rule-005",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 9,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 500,
+      "timeframe": {
+        "minutes": 5
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "range": {
+            "system.cpu.total.norm.pct": {
+              "gt": 0.6
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "CPU",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(system.cpu.total.norm.pct)f"
+      ],
+      "fail_on_non_zero_exit": true,
+      "query_key": "host.name"
+    }
+  },
+  {
+    "id": "rule-006",
+    "strategy": "MEM",
+    "default_enabled": true,
+    "inputs": [],
+    "rule": {
+      "name": "rule-006",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 2,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 500,
+      "timeframe": {
+        "minutes": 5
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "range": {
+            "system.memory.actual.used.pct": {
+              "gt": 0.8
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "MEM",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(system.memory.actual.used.pct)f"
+      ],
+      "fail_on_non_zero_exit": true,
+      "query_key": "host.name"
+    }
+  },
+  {
+    "id": "rule-007",
+    "strategy": "openfile",
+    "default_enabled": true,
+    "inputs": [],
+    "rule": {
+      "name": "rule-007",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 2,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 500,
+      "timeframe": {
+        "minutes": 5
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "range": {
+            "threshold.fd": {
+              "gt": 0.5
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "openfile",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(threshold.fd)s",
+        "%(system.process.fd.open)d",
+        "%(system.process.fd.limit.soft)d",
+        "%(system.process.fd.limit.hard)d",
+        "%(process.name)s"
+      ],
+      "fail_on_non_zero_exit": true,
+      "query_key": "host.name"
+    }
+  },
+  {
+    "id": "rule-008",
+    "strategy": "HostDown",
+    "default_enabled": true,
+    "inputs": [],
+    "rule": {
+      "name": "rule-008",
+      "type": "frequency",
+      "index": "heartbeat-*",
+      "is_enabled": true,
+      "num_events": 2,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 500,
+      "timeframe": {
+        "minutes": 5
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "term": {
+            "monitor.status": "down"
+          }
+        },
+        {
+          "term": {
+            "monitor.type": "icmp"
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "HostDown",
+        "%(url.domain)s",
+        "%(@timestamp)s",
+        "%(error.message)s"
+      ],
+      "fail_on_non_zero_exit": true,
+      "query_key": "monitor.id"
+    }
+  },
+  {
+    "id": "rule-009",
+    "strategy": "WebTCPDown",
+    "default_enabled": true,
+    "inputs": [],
+    "rule": {
+      "name": "rule-009",
+      "type": "frequency",
+      "index": "heartbeat-*",
+      "is_enabled": true,
+      "num_events": 2,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 500,
+      "timeframe": {
+        "minutes": 5
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "term": {
+            "monitor.status": "down"
+          }
+        },
+        {
+          "term": {
+            "monitor.type": "http"
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "WebTCPDown",
+        "%(url.full)s",
+        "%(@timestamp)s",
+        "%(http.response.status_code)s"
+      ],
+      "fail_on_non_zero_exit": true,
+      "query_key": "monitor.id"
+    }
+  },
+  {
+    "id": "rule-010",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_010_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-010",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 500,
+      "timeframe": {
+        "minutes": 5
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_010_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-011",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_011_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-011",
+      "type": "frequency",
+      "index": "logs-network-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 5
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_011_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-012",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_012_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-012",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 2
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_012_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-013",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_013_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-013",
+      "type": "frequency",
+      "index": "logs-application-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 15
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_013_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-014",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_014_INPUT_01",
+      "RULE_014_INPUT_02",
+      "RULE_014_INPUT_03",
+      "RULE_014_INPUT_04",
+      "RULE_014_INPUT_05"
+    ],
+    "rule": {
+      "name": "rule-014",
+      "type": "flatline",
+      "index": "logs-application-*",
+      "is_enabled": true,
+      "threshold": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 15
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_014_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "${RULE_014_INPUT_02}",
+        "${RULE_014_INPUT_03}",
+        "${RULE_014_INPUT_04}",
+        "${RULE_014_INPUT_05}"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-015",
+    "strategy": "DeepSecurity_Antimalware",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_015_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-015",
+      "type": "frequency",
+      "index": "logs-security-events-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "timeframe": {
+        "minutes": 15
+      },
+      "realert": {
+        "seconds": 10
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_015_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "DeepSecurity_Antimalware",
+        "%(hostname)s",
+        "%(@timestamp)s",
+        "%(EventType)s",
+        "%(MalwareName)s",
+        "%(Date)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-016",
+    "strategy": "DeepSecurity_Integrity",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_016_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-016",
+      "type": "frequency",
+      "index": "logs-security-events-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "timeframe": {
+        "minutes": 15
+      },
+      "realert": {
+        "seconds": 10
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_016_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "DeepSecurity_Integrity",
+        "%(hostname)s",
+        "%(@timestamp)s",
+        "%(EventType)s",
+        "%(IntegrityPath)s",
+        "%(IntegrityType)s",
+        "%(Tools)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-017",
+    "strategy": "DeepSecurity_intrusion",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_017_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-017",
+      "type": "frequency",
+      "index": "logs-security-events-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "timeframe": {
+        "minutes": 15
+      },
+      "realert": {
+        "seconds": 10
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_017_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "DeepSecurity_intrusion",
+        "%(hostname)s",
+        "%(@timestamp)s",
+        "%(EventType)s",
+        "%(SourceIP)s",
+        "%(SourcePort)s",
+        "%(DestinationIP)s",
+        "%(DestinationPort)s",
+        "%(Action)s",
+        "%(Date)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-018",
+    "strategy": "DeepSecurity_AgentStatus",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_018_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-018",
+      "type": "frequency",
+      "index": "logs-deepsecurity-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "timeframe": {
+        "hours": 7
+      },
+      "realert": {
+        "seconds": 10
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_018_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "DeepSecurity_AgentStatus",
+        "%(hostName)s",
+        "%(@timestamp)s",
+        "%(agentStatus)s",
+        "%(agentStatusMessages)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-019",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_019_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-019",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 2
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_019_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-020",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_020_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-020",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 2
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_020_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-021",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_021_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-021",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 2
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_021_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-022",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_022_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-022",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 2
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_022_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-023",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_023_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-023",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 2
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_023_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-024",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_024_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-024",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 2
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_024_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-025",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_025_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-025",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 2
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_025_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-026",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_026_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-026",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 2
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_026_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-027",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_027_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-027",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 2
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_027_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-028",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_028_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-028",
+      "type": "frequency",
+      "index": "logs-application-*",
+      "is_enabled": true,
+      "num_events": 2,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 2
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_028_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-029",
+    "strategy": "ApplicationSession",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_029_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-029",
+      "type": "frequency",
+      "index": "logs-application-*",
+      "is_enabled": true,
+      "num_events": 3,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 2
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_029_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "ApplicationSession",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-030",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_030_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-030",
+      "type": "frequency",
+      "index": "logs-application-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 2
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_030_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-031",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_031_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-031",
+      "type": "frequency",
+      "index": "logs-application-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 2
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_031_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-032",
+    "strategy": "ORACLE_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_032_INPUT_01",
+      "RULE_032_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-032",
+      "type": "frequency",
+      "index": "logs-application-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 2
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_032_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "ORACLE_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "${RULE_032_INPUT_02}"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-033",
+    "strategy": "SwitchFailover",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_033_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-033",
+      "type": "frequency",
+      "index": "logs-network-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 15
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_033_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "SwitchFailover",
+        "%(host.ip)s",
+        "%(@timestamp)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-034",
+    "strategy": "paloalto",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_034_INPUT_01",
+      "RULE_034_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-034",
+      "type": "frequency",
+      "index": "logs-network-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 15
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_034_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "paloalto",
+        "%(@timestamp)s",
+        "${RULE_034_INPUT_02}"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-035",
+    "strategy": "paloalto",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_035_INPUT_01",
+      "RULE_035_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-035",
+      "type": "frequency",
+      "index": "logs-network-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 15
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_035_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "paloalto",
+        "%(@timestamp)s",
+        "${RULE_035_INPUT_02}"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-036",
+    "strategy": "NMS_GeneralAlert",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_036_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-036",
+      "type": "frequency",
+      "index": "logs-network-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 5
+      },
+      "query_key": "device",
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 10
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_036_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "NMS_GeneralAlert",
+        "%(device)s",
+        "%(@timestamp)s",
+        "%(rule_name)s",
+        "%(severity)s",
+        "%(device_ip)s",
+        "%(location)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-037",
+    "strategy": "NMS_GeneralAlert",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_037_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-037",
+      "type": "frequency",
+      "index": "logs-network-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 5
+      },
+      "query_key": "device",
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 10
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_037_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "NMS_GeneralAlert",
+        "%(device)s",
+        "%(@timestamp)s",
+        "%(rule_name)s",
+        "%(severity)s",
+        "%(device_ip)s",
+        "%(location)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-038",
+    "strategy": "NMS_GeneralAlert",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_038_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-038",
+      "type": "frequency",
+      "index": "logs-network-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 5
+      },
+      "query_key": "device",
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 10
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_038_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "NMS_GeneralAlert",
+        "%(device)s",
+        "%(@timestamp)s",
+        "%(rule_name)s",
+        "%(severity)s",
+        "%(device_ip)s",
+        "%(location)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-039",
+    "strategy": "NMS_GeneralAlert",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_039_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-039",
+      "type": "frequency",
+      "index": "logs-network-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 5
+      },
+      "query_key": "device",
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 10
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_039_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "NMS_GeneralAlert",
+        "%(device)s",
+        "%(@timestamp)s",
+        "%(rule_name)s",
+        "%(severity)s",
+        "%(device_ip)s",
+        "%(location)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-040",
+    "strategy": "NMS_GeneralAlert",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_040_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-040",
+      "type": "frequency",
+      "index": "logs-network-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 5
+      },
+      "query_key": "device",
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 10
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_040_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "NMS_GeneralAlert",
+        "%(device)s",
+        "%(@timestamp)s",
+        "%(rule_name)s",
+        "%(severity)s",
+        "%(device_ip)s",
+        "%(location)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-041",
+    "strategy": "NMS_GeneralAlert",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_041_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-041",
+      "type": "frequency",
+      "index": "logs-network-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 5
+      },
+      "query_key": "device",
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 10
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_041_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "NMS_GeneralAlert",
+        "%(device)s",
+        "%(@timestamp)s",
+        "%(rule_name)s",
+        "%(severity)s",
+        "%(device_ip)s",
+        "%(location)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-042",
+    "strategy": "NMS_GeneralAlert",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_042_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-042",
+      "type": "frequency",
+      "index": "logs-network-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 5
+      },
+      "query_key": "device",
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 10
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_042_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "NMS_GeneralAlert",
+        "%(device)s",
+        "%(@timestamp)s",
+        "%(rule_name)s",
+        "%(severity)s",
+        "%(device_ip)s",
+        "%(location)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-043",
+    "strategy": "NMS_GeneralAlert",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_043_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-043",
+      "type": "frequency",
+      "index": "logs-network-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 5
+      },
+      "query_key": "device",
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 10
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_043_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "NMS_GeneralAlert",
+        "%(device)s",
+        "%(@timestamp)s",
+        "%(rule_name)s",
+        "%(severity)s",
+        "%(device_ip)s",
+        "%(location)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-044",
+    "strategy": "NMS_GeneralAlert",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_044_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-044",
+      "type": "frequency",
+      "index": "logs-network-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 5
+      },
+      "query_key": "device",
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 10
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_044_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "NMS_GeneralAlert",
+        "%(device)s",
+        "%(@timestamp)s",
+        "%(rule_name)s",
+        "%(severity)s",
+        "%(device_ip)s",
+        "%(location)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-045",
+    "strategy": "CloseWait_Alert",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_045_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-045",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 5,
+      "realert": {
+        "minutes": 15
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 5
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "exists": {
+            "field": "${RULE_045_INPUT_01}"
+          }
+        },
+        {
+          "range": {
+            "system.socket.summary.tcp.all.close_wait": {
+              "gte": 800
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "CloseWait_Alert",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(system.socket.summary.tcp.all.close_wait)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-046",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_046_INPUT_01",
+      "RULE_046_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-046",
+      "type": "frequency",
+      "index": "logs-application-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "timeframe": {
+        "minutes": 10
+      },
+      "realert": {
+        "minutes": 6
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_046_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "${RULE_046_INPUT_02}"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-047",
+    "strategy": "ApplicationDebug",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_047_INPUT_01",
+      "RULE_047_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-047",
+      "type": "frequency",
+      "index": "logs-application-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "timeframe": {
+        "minutes": 10
+      },
+      "realert": {
+        "minutes": 2
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_047_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "ApplicationDebug",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "${RULE_047_INPUT_02}"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-048",
+    "strategy": "MaxProcess_Alert",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_048_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-048",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 3,
+      "realert": {
+        "minutes": 10
+      },
+      "terms_size": 10,
+      "timeframe": {
+        "minutes": 3
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_048_INPUT_01}"
+            }
+          }
+        },
+        {
+          "range": {
+            "system.process.num_threads": {
+              "gte": 15000
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "MaxProcess_Alert",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(system.process.num_threads)s",
+        "%(user.name)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-049",
+    "strategy": "Apim_Alert",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_049_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-049",
+      "type": "frequency",
+      "index": "logs-application-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "timeframe": {
+        "minutes": 1
+      },
+      "realert": {
+        "minutes": 2
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_049_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "Apim_Alert",
+        "%(host_name)s",
+        "%(@timestamp)s",
+        "%(service_name)s",
+        "%(status)s",
+        "%(dp_node_host)s",
+        "%(dp_sync_status)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-050",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_050_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-050",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 2
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_050_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-051",
+    "strategy": "iSCSI_Error",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_051_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-051",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 2
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_051_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "iSCSI_Error",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-052",
+    "strategy": "CPU",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_052_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-052",
+      "type": "frequency",
+      "index": "metrics-vsphere*",
+      "is_enabled": true,
+      "num_events": 10,
+      "realert": {
+        "minutes": 10
+      },
+      "terms_size": 100,
+      "timeframe": {
+        "minutes": 5
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_052_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "CPU",
+        "%(vsphere.host.name)s",
+        "%(@timestamp)s",
+        "%(vsphere.host.cpu.used.pct)f"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-053",
+    "strategy": "MEM",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_053_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-053",
+      "type": "frequency",
+      "index": "metrics-vsphere*",
+      "is_enabled": true,
+      "num_events": 10,
+      "realert": {
+        "minutes": 10
+      },
+      "terms_size": 100,
+      "timeframe": {
+        "minutes": 5
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_053_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "MEM",
+        "%(vsphere.host.name)s",
+        "%(@timestamp)s",
+        "%(vsphere.host.memory.used.pct)f"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-054",
+    "strategy": "Disk",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_054_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-054",
+      "type": "frequency",
+      "index": "metrics-vsphere*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 10
+      },
+      "terms_size": 200,
+      "timeframe": {
+        "minutes": 5
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_054_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "Disk",
+        "%(event.dataset)s",
+        "%(@timestamp)s",
+        "%(vsphere.datastore.capacity.used.pct)f",
+        "%(vsphere.datastore.name)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-055",
+    "strategy": "CPU",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_055_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-055",
+      "type": "frequency",
+      "index": "metrics-vsphere*",
+      "is_enabled": true,
+      "num_events": 10,
+      "realert": {
+        "minutes": 10
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 5
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_055_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "CPU",
+        "%(vsphere.virtualmachine.name)s",
+        "%(@timestamp)s",
+        "0.9"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-056",
+    "strategy": "MEM",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_056_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-056",
+      "type": "frequency",
+      "index": "metrics-vsphere*",
+      "is_enabled": true,
+      "num_events": 10,
+      "realert": {
+        "minutes": 10
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 5
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_056_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "MEM",
+        "%(vsphere.virtualmachine.name)s",
+        "%(@timestamp)s",
+        "0.9"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-057",
+    "strategy": "AP_Log",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_057_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-057",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "minutes": 5
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_057_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "AP_Log",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(log.file.path)s",
+        "%(message)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-058",
+    "strategy": "APM",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_058_INPUT_01",
+      "RULE_058_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-058",
+      "type": "frequency",
+      "is_enabled": true,
+      "index": "traces-apm*",
+      "num_events": 6,
+      "timeframe": {
+        "minutes": 5
+      },
+      "realert": {
+        "minutes": 6
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_058_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "APM",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(transaction.duration.us)s",
+        "%(service.name)s",
+        "${RULE_058_INPUT_02}",
+        "%(transaction.name)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-059",
+    "strategy": "APM",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_059_INPUT_01",
+      "RULE_059_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-059",
+      "type": "frequency",
+      "is_enabled": true,
+      "index": "traces-apm*",
+      "num_events": 10,
+      "timeframe": {
+        "minutes": 5
+      },
+      "realert": {
+        "hours": 2
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_059_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "APM",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(transaction.duration.us)s",
+        "%(service.name)s",
+        "${RULE_059_INPUT_02}",
+        "%(transaction.name)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-060",
+    "strategy": "APM",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_060_INPUT_01",
+      "RULE_060_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-060",
+      "type": "frequency",
+      "is_enabled": true,
+      "index": "traces-apm*",
+      "num_events": 10,
+      "timeframe": {
+        "minutes": 5
+      },
+      "realert": {
+        "minutes": 6
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_060_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "APM",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(transaction.duration.us)s",
+        "%(service.name)s",
+        "${RULE_060_INPUT_02}",
+        "%(transaction.name)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-061",
+    "strategy": "APM",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_061_INPUT_01",
+      "RULE_061_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-061",
+      "type": "frequency",
+      "is_enabled": true,
+      "index": "traces-apm*",
+      "num_events": 10,
+      "timeframe": {
+        "minutes": 5
+      },
+      "realert": {
+        "minutes": 6
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_061_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "APM",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(transaction.duration.us)s",
+        "%(service.name)s",
+        "${RULE_061_INPUT_02}",
+        "%(transaction.name)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-062",
+    "strategy": "APM",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_062_INPUT_01",
+      "RULE_062_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-062",
+      "type": "frequency",
+      "is_enabled": true,
+      "index": "traces-apm*",
+      "num_events": 10,
+      "timeframe": {
+        "minutes": 5
+      },
+      "realert": {
+        "minutes": 6
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_062_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "APM",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(transaction.duration.us)s",
+        "%(service.name)s",
+        "${RULE_062_INPUT_02}",
+        "%(transaction.name)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-063",
+    "strategy": "APM",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_063_INPUT_01",
+      "RULE_063_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-063",
+      "type": "frequency",
+      "is_enabled": true,
+      "index": "traces-apm*",
+      "num_events": 10,
+      "timeframe": {
+        "minutes": 5
+      },
+      "realert": {
+        "minutes": 6
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_063_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "APM",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(transaction.duration.us)s",
+        "%(service.name)s",
+        "${RULE_063_INPUT_02}",
+        "%(transaction.name)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-064",
+    "strategy": "APM",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_064_INPUT_01",
+      "RULE_064_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-064",
+      "type": "frequency",
+      "is_enabled": true,
+      "index": "traces-apm*",
+      "num_events": 10,
+      "timeframe": {
+        "minutes": 5
+      },
+      "realert": {
+        "minutes": 6
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_064_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "APM",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(transaction.duration.us)s",
+        "%(service.name)s",
+        "${RULE_064_INPUT_02}",
+        "%(transaction.name)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-065",
+    "strategy": "APM",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_065_INPUT_01",
+      "RULE_065_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-065",
+      "type": "frequency",
+      "is_enabled": true,
+      "index": "traces-apm*",
+      "num_events": 10,
+      "timeframe": {
+        "minutes": 5
+      },
+      "realert": {
+        "minutes": 6
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_065_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "APM",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(transaction.duration.us)s",
+        "%(service.name)s",
+        "${RULE_065_INPUT_02}",
+        "%(transaction.name)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-066",
+    "strategy": "APM",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_066_INPUT_01",
+      "RULE_066_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-066",
+      "type": "frequency",
+      "is_enabled": true,
+      "index": "traces-apm*",
+      "num_events": 10,
+      "timeframe": {
+        "minutes": 5
+      },
+      "realert": {
+        "minutes": 6
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_066_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "APM",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(transaction.duration.us)s",
+        "%(service.name)s",
+        "${RULE_066_INPUT_02}",
+        "%(transaction.name)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-067",
+    "strategy": "APM",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_067_INPUT_01",
+      "RULE_067_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-067",
+      "type": "frequency",
+      "is_enabled": true,
+      "index": "traces-apm*",
+      "num_events": 10,
+      "timeframe": {
+        "minutes": 5
+      },
+      "realert": {
+        "minutes": 6
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_067_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "APM",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(transaction.duration.us)s",
+        "%(service.name)s",
+        "${RULE_067_INPUT_02}",
+        "%(transaction.name)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-068",
+    "strategy": "APM",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_068_INPUT_01",
+      "RULE_068_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-068",
+      "type": "frequency",
+      "is_enabled": true,
+      "index": "traces-apm*",
+      "num_events": 10,
+      "timeframe": {
+        "minutes": 5
+      },
+      "realert": {
+        "minutes": 6
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_068_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "APM",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(transaction.duration.us)s",
+        "%(service.name)s",
+        "${RULE_068_INPUT_02}",
+        "%(transaction.name)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-069",
+    "strategy": "APM",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_069_INPUT_01",
+      "RULE_069_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-069",
+      "type": "frequency",
+      "is_enabled": true,
+      "index": "traces-apm*",
+      "num_events": 10,
+      "timeframe": {
+        "minutes": 5
+      },
+      "realert": {
+        "minutes": 6
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_069_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "APM",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(transaction.duration.us)s",
+        "%(service.name)s",
+        "${RULE_069_INPUT_02}",
+        "%(transaction.name)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-070",
+    "strategy": "APM",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_070_INPUT_01",
+      "RULE_070_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-070",
+      "type": "frequency",
+      "is_enabled": true,
+      "index": "traces-apm*",
+      "num_events": 10,
+      "timeframe": {
+        "minutes": 5
+      },
+      "realert": {
+        "minutes": 6
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_070_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "APM",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(transaction.duration.us)s",
+        "%(service.name)s",
+        "${RULE_070_INPUT_02}",
+        "%(transaction.name)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-071",
+    "strategy": "APM",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_071_INPUT_01",
+      "RULE_071_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-071",
+      "type": "frequency",
+      "is_enabled": true,
+      "index": "traces-apm*",
+      "num_events": 10,
+      "timeframe": {
+        "minutes": 5
+      },
+      "realert": {
+        "minutes": 6
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_071_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "APM",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(transaction.duration.us)s",
+        "%(service.name)s",
+        "${RULE_071_INPUT_02}",
+        "%(transaction.name)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-072",
+    "strategy": "APM",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_072_INPUT_01",
+      "RULE_072_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-072",
+      "type": "frequency",
+      "is_enabled": true,
+      "index": "traces-apm*",
+      "num_events": 10,
+      "timeframe": {
+        "minutes": 5
+      },
+      "realert": {
+        "minutes": 6
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_072_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "APM",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(transaction.duration.us)s",
+        "%(service.name)s",
+        "${RULE_072_INPUT_02}",
+        "%(transaction.name)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-073",
+    "strategy": "APM",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_073_INPUT_01",
+      "RULE_073_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-073",
+      "type": "frequency",
+      "is_enabled": true,
+      "index": "traces-apm*",
+      "num_events": 10,
+      "timeframe": {
+        "minutes": 5
+      },
+      "realert": {
+        "minutes": 6
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_073_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "APM",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(transaction.duration.us)s",
+        "%(service.name)s",
+        "${RULE_073_INPUT_02}",
+        "%(transaction.name)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-074",
+    "strategy": "APM",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_074_INPUT_01",
+      "RULE_074_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-074",
+      "type": "frequency",
+      "is_enabled": true,
+      "index": "traces-apm*",
+      "num_events": 10,
+      "timeframe": {
+        "minutes": 5
+      },
+      "realert": {
+        "minutes": 6
+      },
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_074_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "APM",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(transaction.duration.us)s",
+        "%(service.name)s",
+        "${RULE_074_INPUT_02}",
+        "%(transaction.name)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-075",
+    "strategy": "DC-CA_RenewAlert",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_075_INPUT_01",
+      "RULE_075_INPUT_02"
+    ],
+    "rule": {
+      "name": "rule-075",
+      "type": "frequency",
+      "index": "logs-application-*",
+      "is_enabled": true,
+      "num_events": 1,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 50,
+      "timeframe": {
+        "hours": 24
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_075_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "DC-CA_RenewAlert",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "${RULE_075_INPUT_02}"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  },
+  {
+    "id": "rule-076",
+    "strategy": "Disk",
+    "default_enabled": false,
+    "inputs": [
+      "RULE_076_INPUT_01"
+    ],
+    "rule": {
+      "name": "rule-076",
+      "type": "frequency",
+      "index": "metrics-system*",
+      "is_enabled": true,
+      "num_events": 2,
+      "realert": {
+        "minutes": 6
+      },
+      "terms_size": 500,
+      "timeframe": {
+        "minutes": 5
+      },
+      "timestamp_field": "@timestamp",
+      "filter": [
+        {
+          "query": {
+            "query_string": {
+              "query": "${RULE_076_INPUT_01}"
+            }
+          }
+        }
+      ],
+      "alert": [
+        "command"
+      ],
+      "command": [
+        "python",
+        "-m",
+        "monitoring.poster",
+        "operator",
+        "Disk",
+        "%(host.name)s",
+        "%(@timestamp)s",
+        "%(system.filesystem.used.pct)f",
+        "%(system.filesystem.mount_point)s"
+      ],
+      "fail_on_non_zero_exit": true
+    }
+  }
+]

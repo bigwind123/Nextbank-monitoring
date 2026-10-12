@@ -1,0 +1,16 @@
+cluster.name: observability
+node.name: ${NODE_NAME}
+node.roles: ${NODE_ROLES}
+network.host: ${LISTEN_HOST}
+discovery.seed_hosts: ${SEED_HOSTS}
+cluster.initial_master_nodes: ${INITIAL_MASTERS}
+xpack.security.enabled: true
+xpack.security.http.ssl.enabled: true
+xpack.security.http.ssl.key: /runtime/certs/${NODE_NAME}/${NODE_NAME}.key
+xpack.security.http.ssl.certificate: /runtime/certs/${NODE_NAME}/${NODE_NAME}.crt
+xpack.security.http.ssl.certificate_authorities: /runtime/certs/ca/ca.crt
+xpack.security.transport.ssl.enabled: true
+xpack.security.transport.ssl.verification_mode: certificate
+xpack.security.transport.ssl.key: /runtime/certs/${NODE_NAME}/${NODE_NAME}.key
+xpack.security.transport.ssl.certificate: /runtime/certs/${NODE_NAME}/${NODE_NAME}.crt
+xpack.security.transport.ssl.certificate_authorities: /runtime/certs/ca/ca.crt

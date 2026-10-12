@@ -1,0 +1,16 @@
+server.host: ${LISTEN_HOST}
+elasticsearch.hosts: ["${ES_BASE}"]
+elasticsearch.username: ${KIBANA_USER}
+elasticsearch.password: ${KIBANA_PASSWORD}
+elasticsearch.ssl.certificateAuthorities: /runtime/certs/ca/ca.crt
+server.ssl.enabled: true
+server.ssl.certificate: /runtime/certs/kibana/kibana.crt
+server.ssl.key: /runtime/certs/kibana/kibana.key
+xpack.security.encryptionKey: ${SECURITY_ENCRYPTION_KEY}
+xpack.encryptedSavedObjects.encryptionKey: ${SAVED_OBJECTS_ENCRYPTION_KEY}
+xpack.reporting.encryptionKey: ${REPORTING_ENCRYPTION_KEY}
+xpack.security.authc.providers:
+  basic.basic1:
+    order: 0
+xpack.fleet.agents.elasticsearch.hosts: ["${ES_BASE}"]
+xpack.fleet.agents.fleet_server.hosts: ["${FLEET_BASE}"]
