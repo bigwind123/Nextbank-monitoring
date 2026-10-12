@@ -8,11 +8,12 @@ from monitoring.config import settings, secret, request
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def wait(client, base, path):
-    for _ in range(240):
+def wait(client, base, path, ready=lambda value: True):
+    deadline = time.monotonic() + 300
+    while time.monotonic() < deadline:
         try:
             response = client.get(base + path, timeout=(5, 20))
-            if response.status_code == 200:
+            if response.status_code == 200 and ready(response.json()):
                 return response.json()
         except requests.RequestException:
             pass
@@ -31,7 +32,13 @@ def client():
 def security():
     cfg = settings()
     c = client()
-    wait(c, cfg["es"], "/_cluster/health?wait_for_status=yellow&timeout=20s")
+    wait(c, cfg["es"], "/_cluster/health", ready=lambda health: health.get("status") in {"yellow", "green"})
+    import yaml
+    master_path = Path("/runtime/master.yml")
+    master_config = yaml.safe_load(master_path.read_text())
+    master_config.pop("cluster.initial_master_nodes", None)
+    master_path.write_text(yaml.safe_dump(master_config))
+    Path("/runtime/.cluster-initialized").touch()
     request(c, "POST", cfg["es"], "/_security/user/kibana_system/_password", json={"password": secret("kibana-password")})
     writer = {"cluster": ["monitor", "manage_ilm", "manage_index_templates", "manage_ingest_pipelines"], "indices": [{
         "names": ["logs-*", "metrics-*", "traces-*", "synthetics-*", "heartbeat-*", "alerting-status*"],

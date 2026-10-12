@@ -126,6 +126,8 @@ def init(runtime, operator=None):
         es = yaml.safe_load((ROOT / "config" / "elasticsearch.yml").read_text())
         es["node.roles"] = node_roles
         es["node.name"] = node
+        if node != "master" or (runtime / ".cluster-initialized").exists():
+            es.pop("cluster.initial_master_nodes", None)
         for key in list(es):
             if isinstance(es[key], str):
                 es[key] = es[key].replace("${NODE_NAME}", node)

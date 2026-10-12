@@ -92,6 +92,40 @@ class DeploymentTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             init(ROOT / ".runtime")
 
+    def test_external_queries_with_quotes_render_correctly(self):
+        catalog = json.loads((ROOT / "config" / "rule-catalog.json").read_text())
+        rule = next(item for item in catalog if item["inputs"])
+        value = 'host.name: "private-target"'
+        with tempfile.TemporaryDirectory() as folder:
+            runtime = Path(folder) / "runtime"
+            operator = Path(folder) / "operator.json"
+            operator.write_text(json.dumps({"rules": {rule["id"]: {"enabled": True, "parameters": {key: value for key in rule["inputs"]}}}}))
+            init(runtime, operator)
+            import yaml
+            result = yaml.safe_load((runtime / "rules" / (rule["id"] + ".yaml")).read_text())
+            self.assertIn(value, json.dumps(result["filter"]).replace('\\"', '"'))
+
+    def test_ocp_resources_use_external_backends_and_preserve_volume_references(self):
+        from scripts.ocp import render
+        from scripts.platform import address
+        import yaml
+        with tempfile.TemporaryDirectory() as folder:
+            runtime = Path(folder) / "runtime"
+            operator = Path(folder) / "operator.json"
+            operator.write_text(json.dumps({"es": address("https", "external-search", 9200), "es_host": "external-search", "kafka_brokers": ["external-queue:9092"]}))
+            init(runtime, operator)
+            for name in ["fleet-service", "agent-enrollment"]:
+                (runtime / "secrets" / name).write_text(secrets.token_urlsafe(24))
+            render(runtime, "observability", "shared-storage", "registry/monitoring")
+            docs = list(yaml.safe_load_all((runtime / "ocp" / "services.yaml").read_text()))
+            claims = {doc["metadata"]["name"] for doc in docs if doc["kind"] == "PersistentVolumeClaim"}
+            workloads = [doc for doc in docs if doc["kind"] == "Deployment"]
+            self.assertNotIn("hot", {doc["metadata"]["name"] for doc in workloads})
+            for doc in workloads:
+                for volume in doc["spec"]["template"]["spec"]["volumes"]:
+                    if "persistentVolumeClaim" in volume:
+                        self.assertIn(volume["persistentVolumeClaim"]["claimName"], claims)
+
 
 if __name__ == "__main__":
     unittest.main()

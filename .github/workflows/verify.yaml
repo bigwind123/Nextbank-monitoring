@@ -22,6 +22,7 @@ jobs:
       - run: python -m scripts.platform init
       - run: python -m scripts.platform config
       - run: python -m scripts.platform up
+        timeout-minutes: 15
       - run: python -m scripts.platform check
       - run: python -m tests.integration_alerting
       - if: failure()

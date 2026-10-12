@@ -9,8 +9,8 @@ from .platform import ROOT
 
 def paths():
     if (ROOT / ".git").exists():
-        result = subprocess.run(["git", "ls-files", "-z"], cwd=ROOT, capture_output=True, check=True)
-        return [ROOT / p.decode() for p in result.stdout.split(b"\0") if p]
+        result = subprocess.run(["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"], cwd=ROOT, capture_output=True, check=True)
+        return [ROOT / p.decode() for p in sorted(set(result.stdout.split(b"\0"))) if p]
     return [p for p in ROOT.rglob("*") if p.is_file() and not any(part.startswith(".") or part == "__pycache__" for part in p.relative_to(ROOT).parts)]
 
 

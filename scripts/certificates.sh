@@ -17,7 +17,8 @@ find /runtime/certs -name '*.key' -exec chmod 640 {} \;
 chown root:root /runtime/certs/ca/ca.key
 chmod 600 /runtime/certs/ca/ca.key
 chgrp -R 0 /runtime
-chmod 755 /runtime
+chmod 770 /runtime
 chmod 770 /runtime/secrets
 find /runtime/secrets -type f -exec chmod 640 {} \;
 chmod 640 /runtime/platform.json /runtime/ldap.conf /runtime/directory.ldif
+chmod 660 /runtime/master.yml
