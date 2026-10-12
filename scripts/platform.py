@@ -182,12 +182,18 @@ def render_rules(runtime, operator):
         if not enabled:
             continue
         parameters = override.get("parameters", {})
-        encoded = json.dumps(rule, ensure_ascii=False)
         for key in item["inputs"]:
             if key not in parameters:
                 raise ValueError("Rule " + item["id"] + " requires external parameter " + key)
-            encoded = encoded.replace("${" + key + "}", str(parameters[key]))
-        rule = json.loads(encoded)
+        def substitute(value):
+            if isinstance(value, dict):
+                return {key: substitute(child) for key, child in value.items()}
+            if isinstance(value, list):
+                return [substitute(child) for child in value]
+            if isinstance(value, str) and value.startswith("${") and value.endswith("}"):
+                return parameters[value[2:-1]]
+            return value
+        rule = substitute(rule)
         rule.update(override.get("config", {}))
         rule["is_enabled"] = True
         write(runtime / "rules" / (item["id"] + ".yaml"), yaml.safe_dump(rule, allow_unicode=True))

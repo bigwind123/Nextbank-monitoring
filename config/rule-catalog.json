@@ -670,7 +670,7 @@
     "rule": {
       "name": "rule-015",
       "type": "frequency",
-      "index": "logs-security-events-*",
+      "index": "logs-security_events-*",
       "is_enabled": true,
       "num_events": 1,
       "timeframe": {
@@ -716,7 +716,7 @@
     "rule": {
       "name": "rule-016",
       "type": "frequency",
-      "index": "logs-security-events-*",
+      "index": "logs-security_events-*",
       "is_enabled": true,
       "num_events": 1,
       "timeframe": {
@@ -763,7 +763,7 @@
     "rule": {
       "name": "rule-017",
       "type": "frequency",
-      "index": "logs-security-events-*",
+      "index": "logs-security_events-*",
       "is_enabled": true,
       "num_events": 1,
       "timeframe": {

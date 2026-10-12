@@ -1,14 +1,14 @@
 set -euo pipefail
 cd /runtime/certs
 if [ ! -f ca/ca.crt ]; then
-    elasticsearch-certutil ca --silent --pem --out ca.zip
-    unzip -q ca.zip
-    rm ca.zip
+    elasticsearch-certutil ca --silent --pem --out /runtime/certs/ca.zip
+    unzip -q /runtime/certs/ca.zip -d /runtime/certs
+    rm /runtime/certs/ca.zip
 fi
 if [ ! -f nginx/nginx.crt ]; then
-    elasticsearch-certutil cert --silent --pem --in /runtime/instances.yml --ca-cert ca/ca.crt --ca-key ca/ca.key --out nodes.zip
-    unzip -qo nodes.zip
-    rm nodes.zip
+    elasticsearch-certutil cert --silent --pem --in /runtime/instances.yml --ca-cert /runtime/certs/ca/ca.crt --ca-key /runtime/certs/ca/ca.key --out /runtime/certs/nodes.zip
+    unzip -qo /runtime/certs/nodes.zip -d /runtime/certs
+    rm /runtime/certs/nodes.zip
 fi
 chown -R 1000:0 /runtime/certs
 find /runtime/certs -type d -exec chmod 755 {} \;

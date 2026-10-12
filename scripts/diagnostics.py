@@ -19,7 +19,7 @@ def main():
             pass
     output = subprocess.run(base + ["logs", "--no-color", "--tail", "80"], capture_output=True, text=True).stdout
     for line in output.splitlines():
-        if re.search(r"error|exception|failed|denied|invalid|unknown setting|out of memory", line, re.I):
+        if re.search(r"error|exception|failed|denied|invalid|unknown setting|out of memory|cannot|could not|no such|not found|unable", line, re.I):
             line = re.sub(r"[A-Za-z]+://[^\s\"']+", "[address removed]", line)
             line = re.sub(r"(?:\d{1,3}\.){3}\d{1,3}", "[address removed]", line)
             line = re.sub(r"[A-Za-z0-9_+/=-]{24,}", "[value removed]", line)

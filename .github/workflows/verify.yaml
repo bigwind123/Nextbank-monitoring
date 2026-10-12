@@ -23,6 +23,7 @@ jobs:
       - run: python -m scripts.platform config
       - run: python -m scripts.platform up
       - run: python -m scripts.platform check
+      - run: python -m tests.integration_alerting
       - if: failure()
         run: python -m scripts.diagnostics
       - if: always()

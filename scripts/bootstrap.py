@@ -52,7 +52,8 @@ def security():
         template = {"index_patterns": [prefix + "-*-*"], "priority": 1, "data_stream": {}, "template": {
             "settings": {"index.lifecycle.name": "hot-cold-retention", "index.number_of_shards": 1, "index.number_of_replicas": 0,
                          "index.routing.allocation.include._tier_preference": "data_hot"},
-            "mappings": {"properties": {"@timestamp": {"type": "date"}}}}}
+            "mappings": {"properties": {"@timestamp": {"type": "date"}, "host": {"properties": {"name": {"type": "keyword"}}},
+                                        "service": {"properties": {"name": {"type": "keyword"}}}}}}}
         request(c, "PUT", cfg["es"], "/_index_template/" + prefix + "-platform", json=template)
     print("Elasticsearch security and retention initialized")
 

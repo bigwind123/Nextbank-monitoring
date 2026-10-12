@@ -16,7 +16,7 @@ def utc():
 def ingest(client, cfg, dataset, documents):
     if not documents:
         return
-    index = "logs-" + dataset + "-default"
+    index = "logs-" + dataset.replace("-", "_") + "-default"
     lines = []
     for doc in documents:
         doc.setdefault("@timestamp", utc())
