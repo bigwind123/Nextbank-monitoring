@@ -111,4 +111,4 @@ python -m scripts.platform up
 
 我用 `compose.yaml` 部署 Linux 主機上的完整服務，也用 [OCP 部署流程](docs/ocp-deployment.md) 產生服務層的 OpenShift manifests。我不在 OCP manifests 中啟用 Elasticsearch data node。
 
-我在 `.github/workflows/verify.yaml` 保留自動化驗證：我先執行程式與設定檢查，再在獨立 runner 啟動真正的容器並驗證完整資料路徑。我不在 CI 或 Git 中保存私有設定、登入資料、正式環境資料或憑證。
+我將程式與部署設定保存在 repository，所有啟動與部署都由執行者在自己的環境操作。我不在 Git 中保存私有設定、登入資料、正式環境資料或憑證。
