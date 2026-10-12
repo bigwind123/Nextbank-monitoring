@@ -129,7 +129,7 @@ def fleet():
     if Path("/runtime/vsphere.json").exists():
         vsphere(c, cfg, p)
     for file in p.iterdir():
-        file.chmod(0o640)
+        file.chmod(0o600 if file.name == "es-bootstrap-password" else 0o640)
     print("Fleet, managed APM and APM integration assets initialized")
 
 

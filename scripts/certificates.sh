@@ -22,3 +22,6 @@ chmod 770 /runtime/secrets
 find /runtime/secrets -type f -exec chmod 640 {} \;
 chmod 640 /runtime/platform.json /runtime/ldap.conf /runtime/directory.ldif
 chmod 660 /runtime/master.yml
+cp /runtime/secrets/elastic-password /runtime/secrets/es-bootstrap-password
+chown 1000:0 /runtime/secrets/es-bootstrap-password
+chmod 600 /runtime/secrets/es-bootstrap-password

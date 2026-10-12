@@ -16,7 +16,7 @@ x-es: &es
     memlock: {soft: -1, hard: -1}
   environment: &es-env
     ES_JAVA_OPTS: -Xms512m -Xmx512m
-    ELASTIC_PASSWORD_FILE: /runtime/secrets/elastic-password
+    ELASTIC_PASSWORD_FILE: /runtime/secrets/es-bootstrap-password
     LISTEN_HOST: ${LISTEN_HOST}
     SEED_HOSTS: master
     INITIAL_MASTERS: master
