@@ -1,0 +1,5 @@
+auth:
+  user: __CFG_0156__
+  password: __CFG_0003__
+itsm:
+  url: __CFG_0157__

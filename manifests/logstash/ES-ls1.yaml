@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: observability
+  name: es-nms-logstash
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: es-nms-logstash
+  template:
+    metadata:
+      labels:
+        app: es-nms-logstash
+    spec:
+      volumes:
+      - name: pipeline
+        configMap:
+          name: cm-nms
+      - name: common-configuration
+        configMap:
+          name: ls-common-config
+      containers:
+      - name: nms-logstash
+        image: __CFG_1561__
+        ports:
+        - name: nms-port
+          containerPort: 5400
+          protocol: UDP
+        resources: {}
+        volumeMounts:
+        - name: common-configuration
+          mountPath: /usr/share/logstash/config/logstash.yml
+          subPath: logstash.yml
+        - name: pipeline
+          mountPath: /usr/share/logstash/pipeline/logstash.conf
+          subPath: logstash.conf
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      imagePullSecrets:
+      - name: __CFG_1534__
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

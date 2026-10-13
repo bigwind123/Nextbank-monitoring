@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: observability
+  name: data1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: data1
+  template:
+    metadata:
+      labels:
+        app: data1
+    spec:
+      volumes:
+      - name: es-config
+        configMap:
+          name: data1-cm
+          defaultMode: 511
+      - name: es-data
+        persistentVolumeClaim:
+          claimName: observability-elk-data1
+      - name: es-common-configuration
+        configMap:
+          name: es-common-cm
+      containers:
+      - name: es1
+        image: __CFG_1538__
+        ports:
+        - name: es1-port
+          containerPort: 9200
+          protocol: TCP
+        - name: es2-port
+          containerPort: 9300
+          protocol: TCP
+        resources: {}
+        volumeMounts:
+        - name: es-common-configuration
+          mountPath: /usr/share/elasticsearch/config/jvm.options
+          subPath: jvm.options
+        - name: es-common-configuration
+          mountPath: /usr/share/elasticsearch/config/log4j2.file.properties
+          subPath: log4j2.file.properties
+        - name: es-common-configuration
+          mountPath: /usr/share/elasticsearch/config/log4j2.properties
+          subPath: log4j2.properties
+        - name: es-common-configuration
+          mountPath: /usr/share/elasticsearch/config/role_mapping.yml
+          subPath: role_mapping.yml
+        - name: es-data
+          mountPath: /usr/share/elasticsearch/data
+        - name: es-config
+          mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
+          subPath: elasticsearch.yml
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      imagePullSecrets:
+      - name: __CFG_1534__
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

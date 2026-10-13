@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: http-heartbeat-config
+  namespace: observability
+data:
+  heartbeat.yml: __SOURCE_FILE__

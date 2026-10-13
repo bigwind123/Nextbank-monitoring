@@ -1,0 +1,25 @@
+name: rule-015
+type: frequency
+index: __CFG_0055__
+is_enabled: true
+num_events: 1
+timeframe:
+  minutes: 15
+realert:
+  seconds: 10
+filter:
+- query:
+    query_string:
+      query: __CFG_0056__
+alert:
+- command
+command:
+- /usr/local/bin/python
+- /opt/ticket_creater/ticket_creater.py
+- __CFG_0057__
+- DeepSecurity_Antimalware
+- '%(hostname)s'
+- '%(@timestamp)s'
+- '%(EventType)s'
+- '%(MalwareName)s'
+- '%(Date)s'

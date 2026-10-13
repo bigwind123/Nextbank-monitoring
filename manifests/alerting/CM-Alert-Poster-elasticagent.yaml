@@ -1,0 +1,8 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: alert-ticket-poster
+  namespace: observability
+data:
+  ticket_creater.py: __SOURCE_FILE__
+  ticket_creater_config.yaml: __SOURCE_FILE__

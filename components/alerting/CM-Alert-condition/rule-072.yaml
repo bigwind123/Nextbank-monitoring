@@ -1,0 +1,26 @@
+name: rule-072
+type: frequency
+is_enabled: true
+index: __CFG_0114__
+num_events: 10
+timeframe:
+  minutes: 5
+realert:
+  minutes: 6
+filter:
+- query:
+    query_string:
+      query: __CFG_0143__
+alert:
+- command
+command:
+- /usr/local/bin/python
+- /opt/ticket_creater/ticket_creater.py
+- __CFG_0030__
+- APM
+- '%(host.name)s'
+- '%(@timestamp)s'
+- '%(transaction.duration.us)s'
+- '%(service.name)s'
+- __CFG_0144__
+- '%(transaction.name)s'

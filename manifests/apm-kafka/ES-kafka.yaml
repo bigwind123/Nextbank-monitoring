@@ -1,0 +1,132 @@
+kind: StatefulSet
+apiVersion: apps/v1
+metadata:
+  name: observability-kafka
+  namespace: observability
+  labels:
+    app: kafka
+spec:
+  serviceName: kafka-headless
+  revisionHistoryLimit: 10
+  persistentVolumeClaimRetentionPolicy:
+    whenDeleted: Retain
+    whenScaled: Retain
+  volumeClaimTemplates:
+  - kind: PersistentVolumeClaim
+    apiVersion: v1
+    metadata:
+      name: data
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 700Gi
+      storageClassName: __CFG_1553__
+      volumeMode: Filesystem
+  template:
+    metadata:
+      labels:
+        app: kafka
+    spec:
+      containers:
+      - resources: {}
+        command:
+        - /bin/bash
+        - -ec
+        - |
+          # Get the last section of the hostname (the ordinal index) for Node ID
+          export KAFKA_CFG_NODE_ID=${HOSTNAME##*-}
+          # Configure advertised listener with the specific pod FQDN
+          export KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://${HOSTNAME}.kafka-headless.application-elk.svc.cluster.local:9092
+          # Execute original entrypoint
+          /opt/bitnami/scripts/kafka/entrypoint.sh /opt/bitnami/scripts/kafka/run.sh
+        readinessProbe:
+          tcpSocket:
+            port: 9092
+          initialDelaySeconds: 10
+          timeoutSeconds: 1
+          periodSeconds: 10
+          successThreshold: 1
+          failureThreshold: 3
+        terminationMessagePath: /dev/termination-log
+        name: kafka
+        livenessProbe:
+          tcpSocket:
+            port: 9092
+          initialDelaySeconds: 60
+          timeoutSeconds: 1
+          periodSeconds: 20
+          successThreshold: 1
+          failureThreshold: 3
+        env:
+        - name: KAFKA_CFG_PROCESS_ROLES
+          value: controller,broker
+        - name: KAFKA_CFG_LOG_RETENTION_HOURS
+          value: '168'
+        - name: KAFKA_CFG_LOG_RETENTION_CHECK_INTERVAL_MS
+          value: '3600000'
+        - name: KAFKA_CFG_DEFAULT_REPLICATION_FACTOR
+          value: '3'
+        - name: KAFKA_CFG_OFFSETS_TOPIC_REPLICATION_FACTOR
+          value: '3'
+        - name: KAFKA_CFG_TRANSACTION_STATE_LOG_REPLICATION_FACTOR
+          value: '3'
+        - name: KAFKA_CFG_NUM_PARTITIONS
+          value: '3'
+        - name: KAFKA_CFG_MIN_INSYNC_REPLICAS
+          value: '2'
+        - name: KAFKA_CFG_TRANSACTION_STATE_LOG_MIN_ISR
+          value: '2'
+        - name: KAFKA_CFG_CONTROLLER_QUORUM_VOTERS
+          value: __CFG_1554__
+        - name: KAFKA_CFG_LISTENERS
+          value: __CFG_1555__
+        - name: KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP
+          value: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+        - name: KAFKA_CFG_CONTROLLER_LISTENER_NAMES
+          value: CONTROLLER
+        - name: KAFKA_KRAFT_CLUSTER_ID
+          value: __CFG_1556__
+        - name: KAFKA_HEAP_OPTS
+          value: -Xmx8192m -Xms8192m
+        - name: BITNAMI_DEBUG
+          value: 'true'
+        ports:
+        - name: client
+          containerPort: 9092
+          protocol: TCP
+        - name: controller
+          containerPort: 9093
+          protocol: TCP
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+        - name: data
+          mountPath: /bitnami/kafka
+        terminationMessagePolicy: File
+        image: __CFG_1557__
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+      - name: __CFG_1534__
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - __CFG_1558__
+            topologyKey: kubernetes.io/hostname
+      schedulerName: default-scheduler
+  podManagementPolicy: Parallel
+  replicas: 3
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      partition: 0
+  selector:
+    matchLabels:
+      app: kafka

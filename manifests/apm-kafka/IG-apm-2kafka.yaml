@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ig-apm-2kafka
+  namespace: observability
+spec:
+  rules:
+  - host: __CFG_1581__
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: apmserver-2kafka
+            port:
+              number: 8200

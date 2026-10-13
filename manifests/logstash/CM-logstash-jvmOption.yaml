@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ls-jvm-options
+  namespace: observability
+data:
+  jvm.options: __SOURCE_FILE__

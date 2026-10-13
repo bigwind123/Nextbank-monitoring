@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: observability
+  name: apmserver-2kafka
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apmserver-2kafka
+  template:
+    metadata:
+      labels:
+        app: apmserver-2kafka
+    spec:
+      containers:
+      - name: apmserver-2kafka
+        env:
+        - name: LOG_LEVEL
+          value: info
+        image: __CFG_1535__
+        ports:
+        - name: apmport
+          containerPort: 8200
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: config
+          mountPath: /usr/share/apm-server/apm-server.yml
+          subPath: apm-server.yml
+          readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: apm-server-config
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: null
+      imagePullSecrets:
+      - name: __CFG_1534__
+      schedulerName: default-scheduler

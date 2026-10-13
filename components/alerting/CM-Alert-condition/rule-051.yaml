@@ -1,0 +1,25 @@
+name: rule-051
+type: frequency
+index: __CFG_0103__
+is_enabled: true
+num_events: 1
+realert:
+  minutes: 6
+terms_size: 50
+timeframe:
+  minutes: 2
+timestamp_field: '@timestamp'
+filter:
+- query:
+    query_string:
+      query: __CFG_0104__
+alert:
+- command
+command:
+- /usr/local/bin/python
+- /opt/ticket_creater/ticket_creater.py
+- __CFG_0030__
+- iSCSI_Error
+- '%(host.name)s'
+- '%(@timestamp)s'
+- '%(message)s'

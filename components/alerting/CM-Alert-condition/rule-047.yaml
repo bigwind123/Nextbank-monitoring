@@ -1,0 +1,25 @@
+name: rule-047
+type: frequency
+index: __CFG_0048__
+is_enabled: true
+num_events: 1
+timeframe:
+  minutes: 10
+realert:
+  minutes: 2
+timestamp_field: '@timestamp'
+filter:
+- query:
+    query_string:
+      query: __CFG_0097__
+alert:
+- command
+command:
+- /usr/local/bin/python
+- /opt/ticket_creater/ticket_creater.py
+- __CFG_0030__
+- ApplicationDebug
+- '%(host.name)s'
+- '%(@timestamp)s'
+- '%(log.file.path)s'
+- __CFG_0096__

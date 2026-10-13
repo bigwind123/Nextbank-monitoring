@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: observability
+  name: fleetserver
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fleetserver1
+  template:
+    metadata:
+      labels:
+        app: fleetserver1
+    spec:
+      volumes:
+      - name: es-crt
+        configMap:
+          name: fleet-es-crt
+      - name: fleet-config
+        configMap:
+          name: fleet-config
+      containers:
+      - name: fleetserver1
+        env:
+        - name: FLEET_SERVER_ENABLE
+          value: 'true'
+        - name: FLEET_SERVER_ELASTICSEARCH_HOST
+          value: __CFG_1494__
+        - name: FLEET_SERVER_SERVICE_TOKEN
+          value: __CFG_0021__
+        - name: FLEET_SERVER_POLICY
+          value: fleet-server-policy
+        - name: FLEET_SERVER_PORT
+          value: '8220'
+        - name: FLEET_SERVER_ES_CA
+          value: /usr/share/elastic-agent/elasticsearch-ca.crt
+        - name: FLEET_SERVER_ES_INSECURE
+          value: 'TRUE'
+        image: __CFG_1541__
+        ports:
+        - name: fleet-enroll
+          containerPort: 8220
+          protocol: TCP
+        - name: f5-enroll
+          containerPort: 9570
+          protocol: TCP
+        resources: {}
+        volumeMounts:
+        - name: es-crt
+          mountPath: /usr/share/elastic-agent/elasticsearch-ca.crt
+          subPath: elasticsearch-ca.crt
+        - name: fleet-config
+          mountPath: /usr/share/elastic-agent/fleet-server.yml
+          subPath: elastic-agent.yml
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      imagePullSecrets:
+      - name: __CFG_1534__
+      schedulerName: default-scheduler

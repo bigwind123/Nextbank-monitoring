@@ -1,0 +1,47 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ig-kbn-web
+  namespace: observability
+spec:
+  rules:
+  - host: __CFG_1585__
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: observability-ngx1
+            port:
+              number: 8080
+  - host: __CFG_1586__
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: observability-ngx1
+            port:
+              number: 8081
+  - host: __CFG_1587__
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: observability-kbn1
+            port:
+              number: 5601
+  - host: __CFG_1588__
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: observability-ngx1-network
+            port:
+              number: 8080

@@ -1,0 +1,18 @@
+server.host: __CFG_0158__
+server.shutdownTimeout: 120s
+elasticsearch.hosts:
+- __CFG_1494__
+- __CFG_1495__
+- __CFG_1496__
+monitoring.ui.container.elasticsearch.enabled: true
+elasticsearch.username: __CFG_1497__
+elasticsearch.password: __CFG_0011__
+elasticsearch.ssl.verificationMode: none
+elasticsearch.requestTimeout: 1200000
+monitoring.ui.application.enabled: false
+xpack.encryptedSavedObjects.encryptionKey: __CFG_0012__
+xpack.reporting.encryptionKey: __CFG_0013__
+xpack.security.encryptionKey: __CFG_0014__
+telemetry.enabled: false
+xpack.reporting.kibanaServer.hostname: __CFG_1498__
+xpack.apm.ui.maxTraceItems: 50000

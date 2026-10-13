@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: observability
+  name: python-ldap
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-ldap
+  template:
+    metadata:
+      labels:
+        app: python-ldap
+    spec:
+      containers:
+      - name: python-ldap
+        image: __CFG_1563__
+        ports:
+        - name: transfer-port
+          containerPort: 8888
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      imagePullSecrets:
+      - name: __CFG_1534__
+      schedulerName: default-scheduler

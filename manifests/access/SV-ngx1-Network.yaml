@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: observability-ngx1-network
+  namespace: observability
+spec:
+  ipFamilies:
+  - IPv4
+  ports:
+  - name: proxy-redirect
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: ngx1-network

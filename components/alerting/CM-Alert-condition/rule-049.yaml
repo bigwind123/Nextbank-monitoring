@@ -1,0 +1,27 @@
+name: rule-049
+type: frequency
+index: __CFG_0100__
+is_enabled: true
+num_events: 1
+timeframe:
+  minutes: 1
+realert:
+  minutes: 2
+timestamp_field: '@timestamp'
+filter:
+- query:
+    query_string:
+      query: __CFG_0101__
+alert:
+- command
+command:
+- /usr/local/bin/python
+- /opt/ticket_creater/ticket_creater.py
+- __CFG_0030__
+- Apim_Alert
+- '%(host_name)s'
+- '%(@timestamp)s'
+- '%(service_name)s'
+- '%(status)s'
+- '%(dp_node_host)s'
+- '%(dp_sync_status)s'

@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: observability
+  name: http-heartbeatserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: http-heartbeatserver
+  template:
+    metadata:
+      labels:
+        app: http-heartbeatserver
+    spec:
+      volumes:
+      - name: http-heartbeat-config
+        configMap:
+          name: http-heartbeat-config
+      - name: http-heartbeat-target-list
+        configMap:
+          name: http-heartbeat-target-list
+      hostAliases:
+      - ip: __CFG_1545__
+        hostnames:
+        - __CFG_1546__
+      - ip: __CFG_1547__
+        hostnames:
+        - __CFG_1548__
+      - ip: __CFG_1549__
+        hostnames:
+        - __CFG_1550__
+      - ip: __CFG_1551__
+        hostnames:
+        - __CFG_1552__
+      containers:
+      - name: http-heartbeatserver
+        env:
+        - name: setup.kibana.host
+          value: __CFG_1542__
+        - name: output.elasticsearch.hosts
+          value: __CFG_1543__
+        image: __CFG_1544__
+        volumeMounts:
+        - name: http-heartbeat-config
+          mountPath: /usr/share/heartbeat/heartbeat.yml
+          subPath: heartbeat.yml
+        - name: http-heartbeat-target-list
+          mountPath: /usr/share/heartbeat/monitors.d
+        securityContext:
+          capabilities:
+            add:
+            - NET_RAW
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+      - name: __CFG_1534__
+      schedulerName: default-scheduler
+      serviceAccountName: capabilities-net-raw

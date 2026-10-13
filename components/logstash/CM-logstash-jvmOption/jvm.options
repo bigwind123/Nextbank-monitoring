@@ -1,0 +1,12 @@
+-Xms8g
+-Xmx8g
+-XX:+UseG1GC
+-XX:MaxGCPauseMillis=200
+-XX:G1ReservePercent=25
+-XX:InitiatingHeapOccupancyPercent=30
+-Djava.awt.headless=true
+-Dfile.encoding=UTF-8
+-Djruby.compile.invokedynamic=true
+-XX:+HeapDumpOnOutOfMemoryError
+-Djava.security.egd=file:/dev/urandom
+-Dlog4j2.isThreadContextMapInheritable=true

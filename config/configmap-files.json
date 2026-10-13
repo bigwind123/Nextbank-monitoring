@@ -1,0 +1,173 @@
+{
+  "manifests/alerting/CM-Alert-common-config.yaml": {
+    "elastalert.yaml": "components/alerting/CM-Alert-common-config/elastalert.yaml"
+  },
+  "manifests/alerting/CM-Alert-condition.yaml": {
+    "rule-001.yaml": "components/alerting/CM-Alert-condition/rule-001.yaml",
+    "rule-002.yaml": "components/alerting/CM-Alert-condition/rule-002.yaml",
+    "rule-003.yaml": "components/alerting/CM-Alert-condition/rule-003.yaml",
+    "rule-004.yaml": "components/alerting/CM-Alert-condition/rule-004.yaml",
+    "rule-005.yaml": "components/alerting/CM-Alert-condition/rule-005.yaml",
+    "rule-006.yaml": "components/alerting/CM-Alert-condition/rule-006.yaml",
+    "rule-007.yaml": "components/alerting/CM-Alert-condition/rule-007.yaml",
+    "rule-008.yaml": "components/alerting/CM-Alert-condition/rule-008.yaml",
+    "rule-009.yaml": "components/alerting/CM-Alert-condition/rule-009.yaml",
+    "rule-010.yaml": "components/alerting/CM-Alert-condition/rule-010.yaml",
+    "rule-011.yaml": "components/alerting/CM-Alert-condition/rule-011.yaml",
+    "rule-012.yaml": "components/alerting/CM-Alert-condition/rule-012.yaml",
+    "rule-013.yaml": "components/alerting/CM-Alert-condition/rule-013.yaml",
+    "rule-014.yaml": "components/alerting/CM-Alert-condition/rule-014.yaml",
+    "rule-015.yaml": "components/alerting/CM-Alert-condition/rule-015.yaml",
+    "rule-016.yaml": "components/alerting/CM-Alert-condition/rule-016.yaml",
+    "rule-017.yaml": "components/alerting/CM-Alert-condition/rule-017.yaml",
+    "rule-018.yaml": "components/alerting/CM-Alert-condition/rule-018.yaml",
+    "rule-019.yaml": "components/alerting/CM-Alert-condition/rule-019.yaml",
+    "rule-020.yaml": "components/alerting/CM-Alert-condition/rule-020.yaml",
+    "rule-021.yaml": "components/alerting/CM-Alert-condition/rule-021.yaml",
+    "rule-022.yaml": "components/alerting/CM-Alert-condition/rule-022.yaml",
+    "rule-023.yaml": "components/alerting/CM-Alert-condition/rule-023.yaml",
+    "rule-024.yaml": "components/alerting/CM-Alert-condition/rule-024.yaml",
+    "rule-025.yaml": "components/alerting/CM-Alert-condition/rule-025.yaml",
+    "rule-026.yaml": "components/alerting/CM-Alert-condition/rule-026.yaml",
+    "rule-027.yaml": "components/alerting/CM-Alert-condition/rule-027.yaml",
+    "rule-028.yaml": "components/alerting/CM-Alert-condition/rule-028.yaml",
+    "rule-029.yaml": "components/alerting/CM-Alert-condition/rule-029.yaml",
+    "rule-030.yaml": "components/alerting/CM-Alert-condition/rule-030.yaml",
+    "rule-031.yaml": "components/alerting/CM-Alert-condition/rule-031.yaml",
+    "rule-032.yaml": "components/alerting/CM-Alert-condition/rule-032.yaml",
+    "rule-033.yaml": "components/alerting/CM-Alert-condition/rule-033.yaml",
+    "rule-034.yaml": "components/alerting/CM-Alert-condition/rule-034.yaml",
+    "rule-035.yaml": "components/alerting/CM-Alert-condition/rule-035.yaml",
+    "rule-036.yaml": "components/alerting/CM-Alert-condition/rule-036.yaml",
+    "rule-037.yaml": "components/alerting/CM-Alert-condition/rule-037.yaml",
+    "rule-038.yaml": "components/alerting/CM-Alert-condition/rule-038.yaml",
+    "rule-039.yaml": "components/alerting/CM-Alert-condition/rule-039.yaml",
+    "rule-040.yaml": "components/alerting/CM-Alert-condition/rule-040.yaml",
+    "rule-041.yaml": "components/alerting/CM-Alert-condition/rule-041.yaml",
+    "rule-042.yaml": "components/alerting/CM-Alert-condition/rule-042.yaml",
+    "rule-043.yaml": "components/alerting/CM-Alert-condition/rule-043.yaml",
+    "rule-044.yaml": "components/alerting/CM-Alert-condition/rule-044.yaml",
+    "rule-045.yaml": "components/alerting/CM-Alert-condition/rule-045.yaml",
+    "rule-046.yaml": "components/alerting/CM-Alert-condition/rule-046.yaml",
+    "rule-047.yaml": "components/alerting/CM-Alert-condition/rule-047.yaml",
+    "rule-048.yaml": "components/alerting/CM-Alert-condition/rule-048.yaml",
+    "rule-049.yaml": "components/alerting/CM-Alert-condition/rule-049.yaml",
+    "rule-050.yaml": "components/alerting/CM-Alert-condition/rule-050.yaml",
+    "rule-051.yaml": "components/alerting/CM-Alert-condition/rule-051.yaml",
+    "rule-052.yaml": "components/alerting/CM-Alert-condition/rule-052.yaml",
+    "rule-053.yaml": "components/alerting/CM-Alert-condition/rule-053.yaml",
+    "rule-054.yaml": "components/alerting/CM-Alert-condition/rule-054.yaml",
+    "rule-055.yaml": "components/alerting/CM-Alert-condition/rule-055.yaml",
+    "rule-056.yaml": "components/alerting/CM-Alert-condition/rule-056.yaml",
+    "rule-057.yaml": "components/alerting/CM-Alert-condition/rule-057.yaml",
+    "rule-058.yaml": "components/alerting/CM-Alert-condition/rule-058.yaml",
+    "rule-059.yaml": "components/alerting/CM-Alert-condition/rule-059.yaml",
+    "rule-060.yaml": "components/alerting/CM-Alert-condition/rule-060.yaml",
+    "rule-061.yaml": "components/alerting/CM-Alert-condition/rule-061.yaml",
+    "rule-062.yaml": "components/alerting/CM-Alert-condition/rule-062.yaml",
+    "rule-063.yaml": "components/alerting/CM-Alert-condition/rule-063.yaml",
+    "rule-064.yaml": "components/alerting/CM-Alert-condition/rule-064.yaml",
+    "rule-065.yaml": "components/alerting/CM-Alert-condition/rule-065.yaml",
+    "rule-066.yaml": "components/alerting/CM-Alert-condition/rule-066.yaml",
+    "rule-067.yaml": "components/alerting/CM-Alert-condition/rule-067.yaml",
+    "rule-068.yaml": "components/alerting/CM-Alert-condition/rule-068.yaml",
+    "rule-069.yaml": "components/alerting/CM-Alert-condition/rule-069.yaml",
+    "rule-070.yaml": "components/alerting/CM-Alert-condition/rule-070.yaml",
+    "rule-071.yaml": "components/alerting/CM-Alert-condition/rule-071.yaml",
+    "rule-072.yaml": "components/alerting/CM-Alert-condition/rule-072.yaml",
+    "rule-073.yaml": "components/alerting/CM-Alert-condition/rule-073.yaml",
+    "rule-074.yaml": "components/alerting/CM-Alert-condition/rule-074.yaml",
+    "rule-075.yaml": "components/alerting/CM-Alert-condition/rule-075.yaml",
+    "rule-076.yaml": "components/alerting/CM-Alert-condition/rule-076.yaml"
+  },
+  "manifests/alerting/CM-Alert-elastic_agent.yaml": {
+    "elastic_agent_monitor.py": "components/alerting/CM-Alert-elastic_agent/elastic_agent_monitor.py"
+  },
+  "manifests/alerting/CM-Alert-Poster-elasticagent.yaml": {
+    "ticket_creater.py": "components/alerting/CM-Alert-Poster-elasticagent/ticket_creater.py",
+    "ticket_creater_config.yaml": "components/alerting/CM-Alert-Poster-elasticagent/ticket_creater_config.yaml"
+  },
+  "manifests/alerting/CM-Alert-poster.yaml": {
+    "ticket_creater.py": "components/alerting/CM-Alert-poster/ticket_creater.py",
+    "ticket_creater_config.yaml": "components/alerting/CM-Alert-poster/ticket_creater_config.yaml"
+  },
+  "manifests/apm-kafka/CM-apm-2kafka.yaml": {
+    "apm-server.yml": "components/apm-kafka/CM-apm-2kafka/apm-server.yml"
+  },
+  "manifests/elasticsearch-legacy/CM-coor1.yaml": {
+    "elasticsearch.yml": "components/elasticsearch-legacy/CM-coor1/elasticsearch.yml"
+  },
+  "manifests/elasticsearch-legacy/CM-coor2.yaml": {
+    "elasticsearch.yml": "components/elasticsearch-legacy/CM-coor2/elasticsearch.yml"
+  },
+  "manifests/elasticsearch-legacy/CM-coor3.yaml": {
+    "elasticsearch.yml": "components/elasticsearch-legacy/CM-coor3/elasticsearch.yml"
+  },
+  "manifests/elasticsearch-legacy/CM-data1.yaml": {
+    "elasticsearch.yml": "components/elasticsearch-legacy/CM-data1/elasticsearch.yml"
+  },
+  "manifests/security/CM-deepsecurity.yaml": {
+    "DSM_URL": "components/security/CM-deepsecurity/DSM_URL",
+    "API_KEY": "components/security/CM-deepsecurity/API_KEY",
+    "ES_HOST": "components/security/CM-deepsecurity/ES_HOST",
+    "ES_API_KEY": "components/security/CM-deepsecurity/ES_API_KEY",
+    "ES_INDEX": "components/security/CM-deepsecurity/ES_INDEX",
+    "DSM_VERIFY": "components/security/CM-deepsecurity/DSM_VERIFY"
+  },
+  "manifests/fleet/CM-fleet-es-crt.yaml": {
+    "elasticsearch-ca.crt": "components/fleet/CM-fleet-es-crt/elasticsearch-ca.crt"
+  },
+  "manifests/fleet/CM-fleetserver_TLS1-2.yaml": {
+    "elastic-agent.yml": "components/fleet/CM-fleetserver_TLS1-2/elastic-agent.yml"
+  },
+  "manifests/elasticsearch-legacy/CM-func1.yaml": {
+    "elasticsearch.yml": "components/elasticsearch-legacy/CM-func1/elasticsearch.yml"
+  },
+  "manifests/elasticsearch-legacy/CM-func2.yaml": {
+    "elasticsearch.yml": "components/elasticsearch-legacy/CM-func2/elasticsearch.yml"
+  },
+  "manifests/elasticsearch-legacy/CM-func3.yaml": {
+    "elasticsearch.yml": "components/elasticsearch-legacy/CM-func3/elasticsearch.yml"
+  },
+  "manifests/heartbeat/CM-heartbeat-target_list.yaml": {
+    "asset-001.yml": "components/heartbeat/CM-heartbeat-target_list/asset-001.yml",
+    "DS_Camera_ICMP.yml": "components/heartbeat/CM-heartbeat-target_list/DS_Camera_ICMP.yml",
+    "asset-002.yml": "components/heartbeat/CM-heartbeat-target_list/asset-002.yml"
+  },
+  "manifests/heartbeat/CM-heartbeat.yaml": {
+    "heartbeat.yml": "components/heartbeat/CM-heartbeat/heartbeat.yml"
+  },
+  "manifests/heartbeat/CM-http-heartbeat-target_list.yaml": {
+    "asset-003.yml": "components/heartbeat/CM-http-heartbeat-target_list/asset-003.yml"
+  },
+  "manifests/heartbeat/CM-http-heartbeat.yaml": {
+    "heartbeat.yml": "components/heartbeat/CM-http-heartbeat/heartbeat.yml"
+  },
+  "manifests/kibana/CM-kbn1.yaml": {
+    "kibana.yml": "components/kibana/CM-kbn1/kibana.yml"
+  },
+  "manifests/logstash/CM-logstash-jvmOption.yaml": {
+    "jvm.options": "components/logstash/CM-logstash-jvmOption/jvm.options"
+  },
+  "manifests/apm-kafka/CM-logstash-kafka-apm.yaml": {
+    "logstash.conf": "components/apm-kafka/CM-logstash-kafka-apm/logstash.conf"
+  },
+  "manifests/logstash/CM-ls-commonConfig.yaml": {
+    "logstash.yml": "components/logstash/CM-ls-commonConfig/logstash.yml"
+  },
+  "manifests/access/CM-nginx1.yaml": {
+    "nginx.conf": "components/access/CM-nginx1/nginx.conf"
+  },
+  "manifests/access/CM-nginx1_Network.yaml": {
+    "nginx.conf": "components/access/CM-nginx1_Network/nginx.conf"
+  },
+  "manifests/logstash/CM-nms_ls_pipeline.yaml": {
+    "logstash.conf": "components/logstash/CM-nms_ls_pipeline/logstash.conf"
+  },
+  "manifests/access/CM-python-ldap.yaml": {
+    "nginx-ldap-auth-daemon.py": "components/access/CM-python-ldap/nginx-ldap-auth-daemon.py"
+  },
+  "manifests/access/CM-welcome-page.yaml": {
+    "welcome.html": "components/access/CM-welcome-page/welcome.html"
+  }
+}

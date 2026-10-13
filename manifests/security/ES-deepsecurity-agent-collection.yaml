@@ -1,0 +1,36 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  namespace: observability
+  name: ds-agent-collection
+spec:
+  schedule: 0 0,8,16 * * *
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    metadata:
+      labels:
+        app: ds-agent-collection
+    spec:
+      backoffLimit: 1
+      template:
+        metadata:
+          labels:
+            app: ds-agent-collection
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: ds-agent-collection
+            image: __CFG_1539__
+            imagePullPolicy: Always
+            resources: {}
+            envFrom:
+            - configMapRef:
+                name: ds-cm
+          imagePullSecrets:
+          - name: __CFG_1534__
+          dnsPolicy: ClusterFirst
+          securityContext: {}
+          schedulerName: default-scheduler
+          terminationGracePeriodSeconds: 30

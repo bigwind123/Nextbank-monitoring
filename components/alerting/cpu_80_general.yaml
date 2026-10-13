@@ -1,0 +1,47 @@
+name: rule-077
+type: frequency
+index: __CFG_1514__
+num_events: 179
+timeframe:
+  minutes: 60
+doc_type: _doc
+query_key: host.name
+realert:
+  minutes: 15
+exponential_realert:
+  hours: 8
+filter:
+- query:
+    query_string:
+      query: __CFG_1515__
+alert:
+- email
+alert_text_type: alert_text_only
+alert_subject: __CFG_1516__
+alert_subject_args:
+- host.name
+email_format: __CFG_1517__
+alert_text: '<!DOCTYPE html><html><table style="border:3px #000000 solid;padding:5px;" rules="all" cellpadding="5";><tr><th>HOST</th><th>VALUE</th></tr><tr><td>Sys
+  code</td><td>{}</td></tr><tr><td>Env</td><td>{}</td></tr><tr><td>Hostname</td><td>{}</td></tr><tr><td>Domain</td><td>{}</td></tr><tr><td>Zone</td><td>{}</td></tr><tr><td>IP
+  addr</td><td>{}</td></tr><tr><td>OS</td><td>{}</td></tr><tr><td>OS Version</td><td>{}</td></tr><tr><td>Agent</td><td>{}{}</td></tr>
+  </table><br></br><table style="border:3px #000000 solid;padding:5px;" rules="all" cellpadding="5";><tr><th>CPU</th><th>VALUE</th></tr><tr><td>Core</td><td>{}</td></tr><tr><td>PCT</td><td>{}</td></tr></table><br></br><p3>Time:{}+8h</p3></html>'
+alert_text_args:
+- fields.sys_code
+- fields.env
+- host.name
+- fields.domain
+- fields.zone
+- host.ip
+- host.os.name
+- host.os.version
+- agent.type
+- agent.version
+- system.cpu.cores
+- system.cpu.total.norm.pct
+- starttime
+email:
+- __CFG_1518__
+smtp_host: __CFG_1519__
+smtp_port: 25
+smtp_auth_file: /opt/elastalert/smtp_auth_file.yaml
+from_addr: __CFG_1520__

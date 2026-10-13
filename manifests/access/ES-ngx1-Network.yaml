@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: observability
+  name: ngx1-network
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ngx1-network
+  template:
+    metadata:
+      labels:
+        app: ngx1-network
+    spec:
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: ngx1-network-cm
+          defaultMode: 511
+      containers:
+      - name: ngx1-network
+        image: __CFG_1562__
+        ports:
+        - name: export-port
+          containerPort: 8080
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        imagePullPolicy: Always
+        command:
+        - nginx
+        args:
+        - -g
+        - daemon off;
+        volumeMounts:
+        - name: nginx-config
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      imagePullSecrets:
+      - name: __CFG_1534__
+      schedulerName: default-scheduler

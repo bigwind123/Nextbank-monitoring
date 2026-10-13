@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ls-nms
+  namespace: observability
+spec:
+  ipFamilies:
+  - IPv4
+  ports:
+  - name: nms-udp5400
+    protocol: UDP
+    port: 5400
+    targetPort: 5400
+    nodePort: 30304
+  internalTrafficPolicy: Cluster
+  type: NodePort
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: es-nms-logstash

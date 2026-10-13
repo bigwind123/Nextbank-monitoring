@@ -1,0 +1,27 @@
+apm-server:
+  host: __CFG_0158__:8200
+  rum:
+    enabled: true
+  kibana:
+    enabled: false
+output.kafka:
+  enabled: true
+  hosts:
+  - __CFG_0159__
+  - __CFG_0160__
+  - __CFG_0161__
+  topics:
+  - topic: __CFG_0162__
+    when.contains:
+      processor.event: transaction
+  - topic: __CFG_0162__
+    when.contains:
+      processor.event: span
+  - topic: __CFG_0162__
+    when.contains:
+      processor.event: metric
+  - topic: __CFG_0162__
+    when.contains:
+      processor.event: error
+  - topic: __CFG_0163__
+  required_acks: -1

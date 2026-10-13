@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: apmserver
+  namespace: observability
+spec:
+  ipFamilies:
+  - IPv4
+  ports:
+  - name: apmport
+    protocol: TCP
+    port: 8200
+    targetPort: 8200
+  internalTrafficPolicy: Cluster
+  type: NodePort
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: apmserver-2kafka

@@ -1,0 +1,12 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: ds-cm
+  namespace: observability
+data:
+  DSM_URL: __SOURCE_FILE__
+  API_KEY: __SOURCE_FILE__
+  ES_HOST: __SOURCE_FILE__
+  ES_API_KEY: __SOURCE_FILE__
+  ES_INDEX: __SOURCE_FILE__
+  DSM_VERIFY: __SOURCE_FILE__

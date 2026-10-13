@@ -1,0 +1,25 @@
+name: rule-056
+type: frequency
+index: __CFG_0110__
+is_enabled: true
+num_events: 10
+realert:
+  minutes: 10
+terms_size: 50
+timeframe:
+  minutes: 5
+timestamp_field: '@timestamp'
+filter:
+- query:
+    query_string:
+      query: __CFG_0112__
+alert:
+- command
+command:
+- /usr/local/bin/python
+- /opt/ticket_creater/ticket_creater.py
+- __CFG_0030__
+- MEM
+- '%(vsphere.virtualmachine.name)s'
+- '%(@timestamp)s'
+- '0.9'

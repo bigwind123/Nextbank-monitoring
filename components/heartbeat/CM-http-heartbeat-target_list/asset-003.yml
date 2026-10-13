@@ -1,0 +1,2280 @@
+- type: http
+  name: monitor-004
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1278__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1280__
+- type: http
+  name: monitor-005
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1281__
+  check.request:
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: __CFG_1282__
+  check.response:
+    status:
+    - 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1280__
+- type: http
+  name: monitor-006
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1283__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1284__
+- type: http
+  name: monitor-006
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1285__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 302
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1284__
+- type: http
+  name: monitor-006
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1286__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 302
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1284__
+- type: http
+  name: monitor-006
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1287__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 302
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1284__
+- type: http
+  name: monitor-007
+  schedule: '@every 60s'
+  urls:
+  - __CFG_1288__
+  check.request:
+    method: POST
+    body: __CFG_1289__
+  check.response:
+    status:
+    - 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1284__
+- type: http
+  name: monitor-008
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1290__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1291__
+- type: http
+  name: monitor-009
+  schedule: '@every 60s'
+  urls:
+  - __CFG_1292__
+  check.request:
+    method: GET
+  check.response:
+    status:
+    - 200
+    body: __CFG_1293__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1294__
+- type: http
+  name: monitor-010
+  schedule: '@every 60s'
+  urls:
+  - __CFG_1295__
+  check.request:
+    method: GET
+  check.response:
+    status:
+    - 200
+    body: __CFG_1293__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1294__
+- type: http
+  name: monitor-011
+  schedule: '@every 60s'
+  urls:
+  - __CFG_1296__
+  check.request:
+    method: GET
+  check.response:
+    status:
+    - 200
+    body: __CFG_1293__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1294__
+- type: http
+  name: monitor-012
+  schedule: '@every 60s'
+  urls:
+  - __CFG_1297__
+  check.request:
+    method: GET
+  check.response:
+    status:
+    - 200
+    body: __CFG_1293__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1294__
+- type: http
+  name: monitor-013
+  schedule: '@every 60s'
+  urls:
+  - __CFG_1298__
+  check.request:
+    method: GET
+  check.response:
+    status:
+    - 200
+    body: __CFG_1293__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1294__
+- type: http
+  name: monitor-014
+  schedule: '@every 60s'
+  urls:
+  - __CFG_1299__
+  check.request:
+    method: GET
+  check.response:
+    status:
+    - 200
+    body: __CFG_1293__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1294__
+- type: http
+  name: monitor-015
+  schedule: '@every 60s'
+  urls:
+  - __CFG_1300__
+  check.request:
+    method: GET
+  check.response:
+    status:
+    - 200
+    body: __CFG_1293__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1294__
+- type: http
+  name: monitor-016
+  schedule: '@every 60s'
+  urls:
+  - __CFG_1301__
+  check.request:
+    method: GET
+  check.response:
+    status:
+    - 200
+    body: __CFG_1293__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1294__
+- type: http
+  name: monitor-017
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1302__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1294__
+- type: http
+  name: monitor-018
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1303__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1294__
+- type: http
+  name: monitor-019
+  enabled: true
+  schedule: '@every 30s'
+  hosts:
+  - __CFG_1304__
+  ipv4: true
+  ipv6: false
+  mode: any
+  ssl.verification_mode: none
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1305__
+- type: http
+  name: monitor-020
+  enabled: true
+  schedule: '@every 30s'
+  hosts:
+  - __CFG_1306__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1307__
+- type: http
+  name: monitor-021
+  enabled: true
+  schedule: '@every 30s'
+  hosts:
+  - __CFG_1308__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1309__
+- type: http
+  name: monitor-022
+  enabled: true
+  schedule: '@every 30s'
+  hosts:
+  - __CFG_1310__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 401
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1311__
+- type: http
+  name: monitor-023
+  enabled: true
+  schedule: '@every 30s'
+  hosts:
+  - __CFG_1312__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1313__
+- type: http
+  name: monitor-024
+  enabled: true
+  schedule: '@every 30s'
+  hosts:
+  - __CFG_1314__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 302
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1313__
+- type: http
+  name: monitor-025
+  enabled: true
+  schedule: '@every 30s'
+  hosts:
+  - __CFG_1315__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1313__
+- type: http
+  name: monitor-026
+  enabled: true
+  schedule: '@every 30s'
+  hosts:
+  - __CFG_1316__
+  ipv4: true
+  ipv6: false
+  mode: any
+  ssl.verification_mode: none
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 302
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1313__
+- type: http
+  name: monitor-027
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1317__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 302
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1318__
+- type: http
+  name: monitor-028
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1319__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1320__
+- type: http
+  name: monitor-029
+  schedule: '@every 60s'
+  urls:
+  - __CFG_1321__
+  check.request:
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: __CFG_1322__
+  check.response:
+    status:
+    - 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1320__
+- type: http
+  name: monitor-029
+  schedule: '@every 60s'
+  urls:
+  - __CFG_1323__
+  check.request:
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: __CFG_1324__
+  check.response:
+    status:
+    - 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1320__
+- type: http
+  name: monitor-030
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1325__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1326__
+- type: http
+  id: monitor-031
+  name: monitor-032
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1327__
+  ipv4: true
+  ipv6: false
+  mode: null
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1326__
+- type: http
+  name: monitor-033
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1328__
+  ssl.verification_mode: none
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1329__
+- type: http
+  name: monitor-034
+  enabled: true
+  schedule: '@every 30s'
+  hosts:
+  - __CFG_1330__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1331__
+- type: http
+  name: monitor-035
+  enabled: true
+  schedule: '@every 30s'
+  hosts:
+  - __CFG_1332__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1331__
+- type: http
+  name: monitor-036
+  enabled: true
+  schedule: '@every 30s'
+  hosts:
+  - __CFG_1333__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1334__
+- type: http
+  name: monitor-037
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1335__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 401
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1336__
+- type: http
+  name: monitor-038
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1337__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1336__
+- type: http
+  name: monitor-039
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1338__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1339__
+- type: http
+  name: monitor-040
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1340__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  check.request:
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: __CFG_1341__
+  check.response:
+    status:
+    - 200
+- type: http
+  name: monitor-041
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1342__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1343__
+- type: http
+  name: monitor-042
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1344__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1343__
+- type: http
+  name: monitor-043
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1345__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1346__
+- type: http
+  name: monitor-044
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1347__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1346__
+- type: http
+  name: monitor-045
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1348__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1349__
+- type: http
+  name: monitor-045
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1350__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1349__
+- type: http
+  name: monitor-046
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1351__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1352__
+- type: http
+  name: monitor-046
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1353__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1352__
+- type: http
+  name: monitor-047
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1354__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1352__
+- type: http
+  name: monitor-047
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1355__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1352__
+- type: tcp
+  id: monitor-048
+  name: monitor-048
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_0600__
+  ports:
+  - 15151
+  timeout: 16s
+  wait: 1s
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1352__
+- type: http
+  name: monitor-047
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1356__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1352__
+- type: http
+  name: monitor-049
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1357__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1358__
+- type: http
+  name: monitor-050
+  enabled: true
+  schedule: '@every 30s'
+  hosts:
+  - __CFG_1359__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1360__
+- type: http
+  name: monitor-051
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1361__
+  ipv4: true
+  ipv6: false
+  mode: any
+  ssl.verification_mode: none
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  username: __CFG_1362__
+  password: __CFG_0007__
+  check.response:
+    status:
+    - 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1363__
+- type: http
+  name: monitor-052
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1364__
+  ipv4: true
+  ipv6: false
+  mode: any
+  ssl.verification_mode: none
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  username: __CFG_1365__
+  password: __CFG_0008__
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1363__
+- type: http
+  name: monitor-053
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1366__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 401
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1363__
+- type: http
+  name: monitor-054
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1367__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1368__
+- type: http
+  name: monitor-055
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1369__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1368__
+- type: http
+  name: monitor-056
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1370__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 302
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1371__
+- type: http
+  name: monitor-057
+  enabled: true
+  schedule: '@every 30s'
+  hosts:
+  - __CFG_1372__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1373__
+- type: http
+  name: monitor-058
+  enabled: true
+  schedule: '@every 30s'
+  hosts:
+  - __CFG_1374__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1373__
+- type: http
+  name: monitor-059
+  enabled: true
+  schedule: '@every 30s'
+  hosts:
+  - __CFG_1375__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1373__
+- type: http
+  name: monitor-060
+  enabled: true
+  schedule: '@every 30s'
+  hosts:
+  - __CFG_1376__
+  - __CFG_1377__
+  - __CFG_1378__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1373__
+- type: tcp
+  id: monitor-061
+  name: monitor-061
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1379__
+  ports:
+  - 3001
+  timeout: 16s
+  wait: 1s
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1380__
+- type: http
+  name: monitor-062
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1381__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1380__
+- type: http
+  name: monitor-063
+  schedule: '@every 60s'
+  urls:
+  - __CFG_1382__
+  check.request:
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: __CFG_1383__
+  check.response:
+    status:
+    - 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1384__
+- type: http
+  name: monitor-064
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1385__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1384__
+- type: http
+  name: monitor-065
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1386__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1384__
+- type: http
+  name: monitor-066
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1387__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1388__
+- type: http
+  name: monitor-066
+  enabled: true
+  schedule: '@every 30s'
+  hosts:
+  - __CFG_1389__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1388__
+  ssl:
+    verification_mode: none
+- type: http
+  name: monitor-067
+  schedule: '@every 60s'
+  urls:
+  - __CFG_1390__
+  check.request:
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: __CFG_1391__
+  check.response:
+    status:
+    - 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1388__
+- type: http
+  name: monitor-068
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1392__
+  ssl.verification_mode: none
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1393__
+- type: http
+  name: monitor-068
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1394__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status:
+    - 200
+    - 302
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1393__
+- type: http
+  name: monitor-068
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1395__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 302
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1393__
+- type: http
+  name: monitor-068
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1396__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 302
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1393__
+- type: http
+  name: monitor-069
+  enabled: true
+  schedule: '@every 30s'
+  hosts:
+  - __CFG_1397__
+  - __CFG_1398__
+  ipv4: true
+  ipv6: false
+  mode: any
+  method: POST
+  check.response:
+    status:
+    - 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1399__
+- type: http
+  name: monitor-070
+  schedule: '@every 30s'
+  urls:
+  - __CFG_1400__
+  check.request:
+    method: POST
+    body: __CFG_1401__
+  check.response:
+    status:
+    - 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1331__
+- type: http
+  name: monitor-071
+  schedule: '@every 60s'
+  urls:
+  - __CFG_1402__
+  check.request:
+    method: POST
+    body: __CFG_1403__
+  check.response:
+    status:
+    - 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1404__
+- type: http
+  name: monitor-072
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1405__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1406__
+- type: http
+  name: monitor-073
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1407__
+  ipv4: true
+  ipv6: false
+  mode: any
+  ssl.verification_mode: none
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1408__
+- type: http
+  name: monitor-074
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1409__
+  ipv4: true
+  ipv6: false
+  mode: any
+  ssl.verification_mode: none
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1408__
+- type: http
+  name: monitor-075
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1410__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1411__
+- type: http
+  name: monitor-075
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1410__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1411__
+- type: http
+  name: monitor-076
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1412__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 401
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1413__
+- type: http
+  name: monitor-077
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1414__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1413__
+- type: http
+  name: monitor-078
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1415__
+  check.request:
+    method: POST
+    headers:
+      Content-Type: pplication/x-www-form-urlencoded
+      apiKey: __CFG_0009__
+  check.response:
+    status:
+    - 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1416__
+- type: http
+  name: monitor-079
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1417__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1418__
+- type: http
+  name: monitor-079
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1419__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1418__
+- type: http
+  name: monitor-080
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1420__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1418__
+- type: http
+  name: monitor-080
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1421__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1418__
+- type: http
+  name: monitor-081
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1422__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1418__
+- type: http
+  name: monitor-082
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1423__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  check.request:
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: __CFG_1424__
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1425__
+- type: http
+  name: monitor-082
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1426__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  check.request:
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: __CFG_1427__
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1425__
+- type: http
+  name: monitor-082
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1428__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  check.request:
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: __CFG_1429__
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1425__
+- type: http
+  name: monitor-082
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1430__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  check.request:
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: __CFG_1431__
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1425__
+- type: http
+  name: monitor-082
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1432__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  check.request:
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: __CFG_1433__
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1425__
+- type: http
+  name: monitor-082
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1434__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  check.request:
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: __CFG_1435__
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1425__
+- type: http
+  name: monitor-082
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1436__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  check.request:
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: __CFG_1437__
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1425__
+- type: http
+  name: monitor-082
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1438__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  check.request:
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: __CFG_1439__
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1425__
+- type: http
+  name: monitor-082
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1440__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  check.request:
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: __CFG_1441__
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1425__
+- type: http
+  name: monitor-082
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1442__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  check.request:
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: __CFG_1443__
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1425__
+- type: http
+  name: monitor-082
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1444__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  check.request:
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: __CFG_1443__
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1425__
+- type: http
+  name: monitor-082
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1445__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  check.request:
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: __CFG_1443__
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1425__
+- type: http
+  name: monitor-083
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1446__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1447__
+- type: http
+  name: monitor-084
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1448__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1449__
+- type: http
+  name: monitor-085
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1450__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1451__
+- type: http
+  name: monitor-086
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1452__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1451__
+- type: http
+  name: monitor-087
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1453__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1454__
+- type: http
+  name: monitor-088
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1455__
+  ssl.verification_mode: none
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1456__
+- type: http
+  name: monitor-089
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1457__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1458__
+- type: http
+  name: monitor-090
+  enabled: true
+  schedule: '@every 30s'
+  hosts:
+  - __CFG_1459__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1460__
+- type: http
+  name: monitor-091
+  enabled: true
+  schedule: '@every 12s'
+  hosts:
+  - __CFG_1461__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+    body:
+      positive:
+      - __CFG_1462__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1373__
+- type: http
+  name: monitor-092
+  enabled: true
+  schedule: '@every 12s'
+  hosts:
+  - __CFG_1463__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+    body:
+      positive:
+      - __CFG_1462__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1373__
+- type: http
+  name: monitor-093
+  enabled: true
+  schedule: '@every 12s'
+  hosts:
+  - __CFG_1464__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+    body:
+      positive:
+      - __CFG_1462__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1373__
+- type: http
+  name: monitor-094
+  enabled: true
+  schedule: '@every 12s'
+  hosts:
+  - __CFG_1465__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+    body:
+      positive:
+      - __CFG_1462__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1373__
+- type: http
+  name: monitor-095
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1466__
+  ipv4: true
+  ipv6: false
+  mode: any
+  supported_protocols:
+  - TLSv1.2
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1313__
+- type: http
+  name: monitor-096
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1467__
+  ipv4: true
+  ipv6: false
+  mode: any
+  ssl.verification_mode: none
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1313__
+- type: http
+  name: monitor-097
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1468__
+  ipv4: true
+  ipv6: false
+  mode: any
+  ssl.verification_mode: none
+  method: GET
+  check.response:
+    status: 200
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1313__
+- type: http
+  name: monitor-098
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1469__
+  ipv4: true
+  ipv6: false
+  mode: any
+  ssl.verification_mode: none
+  method: GET
+  check.response:
+    status: 200
+    body:
+    - __CFG_1470__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1471__
+    proxy_host: __CFG_1472__
+- type: http
+  name: monitor-099
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1473__
+  ipv4: true
+  ipv6: false
+  mode: any
+  ssl.verification_mode: none
+  method: GET
+  check.response:
+    status: 200
+    body:
+    - __CFG_1470__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1471__
+    proxy_host: __CFG_1472__
+- type: http
+  name: monitor-100
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1474__
+  ipv4: true
+  ipv6: false
+  mode: any
+  ssl.verification_mode: none
+  method: GET
+  check.response:
+    status: 200
+    body:
+    - __CFG_1470__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1475__
+    proxy_host: __CFG_1476__
+- type: http
+  name: monitor-101
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1477__
+  ipv4: true
+  ipv6: false
+  mode: any
+  ssl.verification_mode: none
+  method: GET
+  check.response:
+    status: 200
+    body:
+    - __CFG_1470__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1475__
+    proxy_host: __CFG_1476__
+- type: http
+  name: monitor-102
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1478__
+  ipv4: true
+  ipv6: false
+  mode: any
+  ssl.verification_mode: none
+  method: GET
+  check.response:
+    status: 200
+    body:
+    - __CFG_1470__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1479__
+    proxy_host: __CFG_1480__
+- type: http
+  name: monitor-103
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1481__
+  ipv4: true
+  ipv6: false
+  mode: any
+  ssl.verification_mode: none
+  method: GET
+  check.response:
+    status: 200
+    body:
+    - __CFG_1470__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1479__
+    proxy_host: __CFG_1480__
+- type: http
+  name: monitor-104
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1482__
+  ipv4: true
+  ipv6: false
+  mode: any
+  ssl.verification_mode: none
+  method: GET
+  check.response:
+    status: 200
+    body:
+    - __CFG_1470__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1483__
+    proxy_host: __CFG_1484__
+- type: http
+  name: monitor-105
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1485__
+  ipv4: true
+  ipv6: false
+  mode: any
+  ssl.verification_mode: none
+  method: GET
+  check.response:
+    status: 200
+    body:
+    - __CFG_1470__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1483__
+    proxy_host: __CFG_1484__
+- type: tcp
+  id: monitor-106
+  name: monitor-107
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1486__
+  ports:
+  - 6443
+  timeout: 16s
+  wait: 1s
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1487__
+- type: tcp
+  id: monitor-108
+  name: monitor-109
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1488__
+  ports:
+  - 6443
+  timeout: 16s
+  wait: 1s
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1487__
+- type: tcp
+  id: monitor-110
+  name: monitor-110
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1489__
+  ports:
+  - 80
+  timeout: 16s
+  wait: 1s
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1487__
+- type: tcp
+  id: monitor-111
+  name: monitor-111
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1489__
+  ports:
+  - 443
+  timeout: 16s
+  wait: 1s
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1487__
+- type: http
+  name: monitor-112
+  enabled: true
+  schedule: '@every 60s'
+  hosts:
+  - __CFG_1490__
+  ipv4: true
+  ipv6: false
+  mode: any
+  ssl.verification_mode: none
+  username: __CFG_1491__
+  password: __CFG_0010__
+  method: GET
+  check.response:
+    status: 200
+    body:
+    - __CFG_1492__
+  fields:
+    env: __CFG_1279__
+    sys_code: __CFG_1493__

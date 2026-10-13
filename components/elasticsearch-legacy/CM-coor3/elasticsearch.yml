@@ -1,0 +1,22 @@
+cluster.name: __CFG_0164__
+node.name: __CFG_0174__
+network.host: __CFG_0158__
+http.port: 9200
+discovery.seed_hosts:
+- __CFG_0166__
+- __CFG_0171__
+- __CFG_0172__
+- __CFG_0167__
+- __CFG_0168__
+- __CFG_0169__
+- __CFG_0173__
+cluster.initial_master_nodes:
+- func1
+- func2
+- func3
+xpack.security.enabled: false
+xpack.security.transport.ssl.enabled: false
+xpack.security.enrollment.enabled: true
+xpack.security.http.ssl.enabled: false
+cluster.remote.node.attr: true
+node.roles: []

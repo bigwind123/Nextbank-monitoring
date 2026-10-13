@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: coord1-cm
+  namespace: observability
+data:
+  elasticsearch.yml: __SOURCE_FILE__

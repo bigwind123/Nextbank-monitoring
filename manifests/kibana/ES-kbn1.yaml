@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: observability
+  name: kbn1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kbn1
+  template:
+    metadata:
+      labels:
+        app: kbn1
+    spec:
+      volumes:
+      - name: kbn-config
+        configMap:
+          name: kbn-cm
+          defaultMode: 420
+      containers:
+      - name: kbn1
+        image: __CFG_1559__
+        ports:
+        - containerPort: 5601
+          protocol: TCP
+        resources: {}
+        volumeMounts:
+        - name: kbn-config
+          mountPath: /usr/share/kibana/config
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      imagePullSecrets:
+      - name: __CFG_1534__
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

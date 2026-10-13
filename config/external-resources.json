@@ -1,0 +1,13 @@
+[
+  {
+    "kind": "ConfigMap",
+    "name": "es-common-cm",
+    "scope": "elasticsearch-legacy",
+    "keys": [
+      "jvm.options",
+      "log4j2.file.properties",
+      "log4j2.properties",
+      "role_mapping.yml"
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: observability-elk-data1
+spec:
+  capacity:
+    storage: 30Gi
+  nfs:
+    server: __CFG_1590__
+    path: __CFG_1595__
+  accessModes:
+  - ReadWriteOnce
+  claimRef:
+    kind: PersistentVolumeClaim
+    namespace: observability
+    name: observability-elk-data1
+    apiVersion: v1
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: __CFG_1592__
+  volumeMode: Filesystem

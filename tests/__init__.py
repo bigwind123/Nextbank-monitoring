@@ -1,1 +1,0 @@
-"""Service and deployment verification."""

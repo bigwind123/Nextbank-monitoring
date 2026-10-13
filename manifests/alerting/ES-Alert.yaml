@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: observability
+  name: alert
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alert
+  template:
+    metadata:
+      labels:
+        app: alert
+    spec:
+      volumes:
+      - name: alert-common-config
+        configMap:
+          name: alert-common-config
+      - name: alert-ticket-poster
+        configMap:
+          name: alert-ticket-poster
+      - name: alert-condition
+        configMap:
+          name: alert-condition
+      containers:
+      - name: alert1
+        image: __CFG_1533__
+        resources: {}
+        volumeMounts:
+        - name: alert-common-config
+          mountPath: /opt/elastalert/config.yaml
+          subPath: elastalert.yaml
+        - name: alert-condition
+          mountPath: /opt/elastalert/rules
+        - name: alert-ticket-poster
+          mountPath: /opt/ticket_creater
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      imagePullSecrets:
+      - name: __CFG_1534__
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

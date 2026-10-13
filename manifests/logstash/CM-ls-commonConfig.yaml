@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: ls-common-config
+  namespace: observability
+data:
+  logstash.yml: __SOURCE_FILE__

@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: observability
+  name: logstash-kafka-apm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: logstash-kafka-apm
+  template:
+    metadata:
+      labels:
+        app: logstash-kafka-apm
+    spec:
+      volumes:
+      - name: stashing-conf
+        configMap:
+          name: logstash-kafka-apm
+          defaultMode: 420
+      - name: logstash-common-set
+        configMap:
+          name: ls-common-config
+          defaultMode: 420
+      - name: jvm-conf
+        configMap:
+          name: ls-jvm-options
+          defaultMode: 420
+      containers:
+      - name: logstash-kafka-apm
+        image: __CFG_1560__
+        ports:
+        - containerPort: 9600
+          protocol: TCP
+        volumeMounts:
+        - name: stashing-conf
+          mountPath: /usr/share/logstash/pipeline/logstash.conf
+          subPath: logstash.conf
+        - name: logstash-common-set
+          mountPath: /usr/share/logstash/config/logstash.yml
+          subPath: logstash.yml
+        - name: jvm-conf
+          mountPath: /usr/share/logstash/config/jvm.options
+          subPath: jvm.options
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      imagePullSecrets:
+      - name: __CFG_1534__
+      schedulerName: default-scheduler

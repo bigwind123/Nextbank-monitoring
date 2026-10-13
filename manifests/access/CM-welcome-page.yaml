@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: welcome-page-cm
+  namespace: observability
+data:
+  welcome.html: __SOURCE_FILE__

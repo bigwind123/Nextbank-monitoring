@@ -1,0 +1,30 @@
+name: rule-042
+type: frequency
+index: __CFG_0078__
+is_enabled: true
+num_events: 1
+realert:
+  minutes: 5
+query_key: device
+terms_size: 50
+timeframe:
+  minutes: 10
+timestamp_field: '@timestamp'
+filter:
+- query:
+    query_string:
+      query: __CFG_0090__
+alert:
+- command
+command:
+- /usr/local/bin/python
+- /opt/ticket_creater/ticket_creater.py
+- __CFG_0030__
+- NMS_GeneralAlert
+- '%(device)s'
+- '%(@timestamp)s'
+- '%(rule_name)s'
+- '%(severity)s'
+- '%(device_ip)s'
+- '%(location)s'
+- '%(message)s'

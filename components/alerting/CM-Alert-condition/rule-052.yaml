@@ -1,0 +1,25 @@
+name: rule-052
+type: frequency
+index: __CFG_0105__
+is_enabled: true
+num_events: 10
+realert:
+  minutes: 10
+terms_size: 100
+timeframe:
+  minutes: 5
+timestamp_field: '@timestamp'
+filter:
+- query:
+    query_string:
+      query: __CFG_0106__
+alert:
+- command
+command:
+- /usr/local/bin/python
+- /opt/ticket_creater/ticket_creater.py
+- __CFG_0030__
+- CPU
+- '%(vsphere.host.name)s'
+- '%(@timestamp)s'
+- '%(vsphere.host.cpu.used.pct)f'

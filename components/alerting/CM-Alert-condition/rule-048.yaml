@@ -1,0 +1,29 @@
+name: rule-048
+type: frequency
+index: __CFG_0098__
+is_enabled: true
+num_events: 3
+realert:
+  minutes: 10
+terms_size: 10
+timeframe:
+  minutes: 3
+timestamp_field: '@timestamp'
+filter:
+- query:
+    query_string:
+      query: __CFG_0099__
+- range:
+    system.process.num_threads:
+      gte: 15000
+alert:
+- command
+command:
+- /usr/local/bin/python
+- /opt/ticket_creater/ticket_creater.py
+- __CFG_0030__
+- MaxProcess_Alert
+- '%(host.name)s'
+- '%(@timestamp)s'
+- '%(system.process.num_threads)s'
+- '%(user.name)s'

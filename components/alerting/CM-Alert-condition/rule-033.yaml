@@ -1,0 +1,25 @@
+name: rule-033
+type: frequency
+index: __CFG_0078__
+is_enabled: true
+num_events: 1
+realert:
+  minutes: 6
+terms_size: 50
+timeframe:
+  minutes: 15
+timestamp_field: '@timestamp'
+filter:
+- query:
+    query_string:
+      query: __CFG_0079__
+alert:
+- command
+command:
+- /usr/local/bin/python
+- /opt/ticket_creater/ticket_creater.py
+- __CFG_0030__
+- SwitchFailover
+- '%(host.ip)s'
+- '%(@timestamp)s'
+- '%(message)s'

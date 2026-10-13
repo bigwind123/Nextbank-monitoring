@@ -1,0 +1,31 @@
+outputs:
+  default:
+    type: elasticsearch
+    hosts: __CFG_0179__
+    username: __CFG_0180__
+    password: __CFG_0006__
+    preset: balanced
+inputs:
+- type: system/metrics
+  id: unique-system-metrics-input
+  data_stream.namespace: default
+  use_output: default
+  streams:
+  - metricsets:
+    - cpu
+    data_stream.dataset: system.cpu
+  - metricsets:
+    - memory
+    data_stream.dataset: system.memory
+  - metricsets:
+    - network
+    data_stream.dataset: system.network
+  - metricsets:
+    - filesystem
+    data_stream.dataset: system.filesystem
+fleet:
+  kibana:
+    ssl.supported_protocols:
+    - TLSv1.2
+    - TLSv1.3
+agent.logging.to_stderr: true

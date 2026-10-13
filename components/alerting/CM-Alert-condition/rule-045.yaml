@@ -1,0 +1,27 @@
+name: rule-045
+type: frequency
+index: __CFG_0093__
+is_enabled: true
+num_events: 5
+realert:
+  minutes: 15
+terms_size: 50
+timeframe:
+  minutes: 5
+timestamp_field: '@timestamp'
+filter:
+- exists:
+    field: __CFG_0094__
+- range:
+    system.socket.summary.tcp.all.close_wait:
+      gte: 800
+alert:
+- command
+command:
+- /usr/local/bin/python
+- /opt/ticket_creater/ticket_creater.py
+- __CFG_0030__
+- CloseWait_Alert
+- '%(host.name)s'
+- '%(@timestamp)s'
+- '%(system.socket.summary.tcp.all.close_wait)s'

@@ -1,5 +1,0 @@
-http.host: ${LISTEN_HOST}
-pipeline.ecs_compatibility: v8
-queue.type: persisted
-queue.max_bytes: 512mb
-dead_letter_queue.enable: true

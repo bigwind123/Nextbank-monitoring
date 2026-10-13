@@ -1,0 +1,26 @@
+name: rule-054
+type: frequency
+index: __CFG_0108__
+is_enabled: true
+num_events: 1
+realert:
+  minutes: 10
+terms_size: 200
+timeframe:
+  minutes: 5
+timestamp_field: '@timestamp'
+filter:
+- query:
+    query_string:
+      query: __CFG_0109__
+alert:
+- command
+command:
+- /usr/local/bin/python
+- /opt/ticket_creater/ticket_creater.py
+- __CFG_0030__
+- Disk
+- '%(event.dataset)s'
+- '%(@timestamp)s'
+- '%(vsphere.datastore.capacity.used.pct)f'
+- '%(vsphere.datastore.name)s'

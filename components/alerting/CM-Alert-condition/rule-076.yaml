@@ -1,0 +1,26 @@
+name: rule-076
+type: frequency
+index: __CFG_0028__
+is_enabled: true
+num_events: 2
+realert:
+  minutes: 6
+terms_size: 500
+timeframe:
+  minutes: 5
+timestamp_field: '@timestamp'
+filter:
+- query:
+    query_string:
+      query: __CFG_0152__
+alert:
+- command
+command:
+- /usr/local/bin/python
+- /opt/ticket_creater/ticket_creater.py
+- __CFG_0030__
+- Disk
+- '%(host.name)s'
+- '%(@timestamp)s'
+- '%(system.filesystem.used.pct)f'
+- '%(system.filesystem.mount_point)s'

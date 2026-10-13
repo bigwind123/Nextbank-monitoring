@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: observability
+  name: apmserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apmserver
+  template:
+    metadata:
+      labels:
+        app: apmserver
+    spec:
+      containers:
+      - name: apmserver
+        env:
+        - name: FLEET_ENROLL
+          value: '1'
+        - name: FLEET_URL
+          value: __CFG_1536__
+        - name: FLEET_ENROLLMENT_TOKEN
+          value: __CFG_0020__
+        - name: FLEET_INSECURE
+          value: 'true'
+        image: __CFG_1537__
+        ports:
+        - name: apmport
+          containerPort: 8200
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      imagePullSecrets:
+      - name: __CFG_1534__
+      schedulerName: default-scheduler

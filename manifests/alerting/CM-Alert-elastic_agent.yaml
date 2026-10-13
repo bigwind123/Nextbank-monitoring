@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: alert-ticket-poster
+  namespace: observability
+data:
+  elastic_agent_monitor.py: __SOURCE_FILE__

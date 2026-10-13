@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ig-nms-logstash
+  namespace: observability
+spec:
+  rules:
+  - host: __CFG_1589__
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: ls-nms
+            port:
+              number: 5400

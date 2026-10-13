@@ -1,0 +1,26 @@
+name: rule-014
+type: flatline
+index: __CFG_0048__
+is_enabled: true
+threshold: 1
+realert:
+  minutes: 6
+terms_size: 50
+timeframe:
+  minutes: 15
+timestamp_field: '@timestamp'
+filter:
+- query:
+    query_string:
+      query: __CFG_0050__
+alert:
+- command
+command:
+- /usr/local/bin/python
+- /opt/ticket_creater/ticket_creater.py
+- __CFG_0030__
+- AP_Log
+- __CFG_0051__
+- __CFG_0052__
+- __CFG_0053__
+- __CFG_0054__

@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ig-fleet
+  namespace: observability
+spec:
+  rules:
+  - host: __CFG_1583__
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: fleetserver
+            port:
+              number: 8220
+  - host: __CFG_1584__
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: fleetserver
+            port:
+              number: 9570

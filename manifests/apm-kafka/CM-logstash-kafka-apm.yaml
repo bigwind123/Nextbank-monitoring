@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: logstash-kafka-apm
+  namespace: observability
+data:
+  logstash.conf: __SOURCE_FILE__

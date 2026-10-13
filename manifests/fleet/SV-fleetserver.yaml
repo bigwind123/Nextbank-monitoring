@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fleetserver
+  namespace: observability
+spec:
+  ipFamilies:
+  - IPv4
+  ports:
+  - name: fleetport
+    protocol: TCP
+    port: 8220
+    targetPort: 8220
+    nodePort: 30303
+  - name: f5port
+    protocol: TCP
+    port: 9570
+    targetPort: 9570
+    nodePort: 30305
+  internalTrafficPolicy: Cluster
+  type: NodePort
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: fleetserver1

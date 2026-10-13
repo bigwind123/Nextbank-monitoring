@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: alert-common-config
+  namespace: observability
+data:
+  elastalert.yaml: __SOURCE_FILE__

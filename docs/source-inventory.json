@@ -1,0 +1,476 @@
+{
+  "files": [
+    {
+      "source": "CM-Alert-common-config.yaml",
+      "published": "manifests/alerting/CM-Alert-common-config.yaml"
+    },
+    {
+      "source": "CM-Alert-condition.yaml",
+      "published": "manifests/alerting/CM-Alert-condition.yaml"
+    },
+    {
+      "source": "CM-Alert-elastic_agent.yaml",
+      "published": "manifests/alerting/CM-Alert-elastic_agent.yaml"
+    },
+    {
+      "source": "CM-Alert-Poster-elasticagent.yaml",
+      "published": "manifests/alerting/CM-Alert-Poster-elasticagent.yaml"
+    },
+    {
+      "source": "CM-Alert-poster.yaml",
+      "published": "manifests/alerting/CM-Alert-poster.yaml"
+    },
+    {
+      "source": "CM-apm-2kafka.yaml",
+      "published": "manifests/apm-kafka/CM-apm-2kafka.yaml"
+    },
+    {
+      "source": "CM-coor1.yaml",
+      "published": "manifests/elasticsearch-legacy/CM-coor1.yaml"
+    },
+    {
+      "source": "CM-coor2.yaml",
+      "published": "manifests/elasticsearch-legacy/CM-coor2.yaml"
+    },
+    {
+      "source": "CM-coor3.yaml",
+      "published": "manifests/elasticsearch-legacy/CM-coor3.yaml"
+    },
+    {
+      "source": "CM-data1.yaml",
+      "published": "manifests/elasticsearch-legacy/CM-data1.yaml"
+    },
+    {
+      "source": "CM-deepsecurity.yaml",
+      "published": "manifests/security/CM-deepsecurity.yaml"
+    },
+    {
+      "source": "CM-fleet-es-crt.yaml",
+      "published": "manifests/fleet/CM-fleet-es-crt.yaml"
+    },
+    {
+      "source": "CM-fleetserver_TLS1-2.yaml",
+      "published": "manifests/fleet/CM-fleetserver_TLS1-2.yaml"
+    },
+    {
+      "source": "CM-func1.yaml",
+      "published": "manifests/elasticsearch-legacy/CM-func1.yaml"
+    },
+    {
+      "source": "CM-func2.yaml",
+      "published": "manifests/elasticsearch-legacy/CM-func2.yaml"
+    },
+    {
+      "source": "CM-func3.yaml",
+      "published": "manifests/elasticsearch-legacy/CM-func3.yaml"
+    },
+    {
+      "source": "CM-heartbeat-target_list.yaml",
+      "published": "manifests/heartbeat/CM-heartbeat-target_list.yaml"
+    },
+    {
+      "source": "CM-heartbeat.yaml",
+      "published": "manifests/heartbeat/CM-heartbeat.yaml"
+    },
+    {
+      "source": "CM-http-heartbeat-target_list.yaml",
+      "published": "manifests/heartbeat/CM-http-heartbeat-target_list.yaml"
+    },
+    {
+      "source": "CM-http-heartbeat.yaml",
+      "published": "manifests/heartbeat/CM-http-heartbeat.yaml"
+    },
+    {
+      "source": "CM-kbn1.yaml",
+      "published": "manifests/kibana/CM-kbn1.yaml"
+    },
+    {
+      "source": "CM-logstash-jvmOption.yaml",
+      "published": "manifests/logstash/CM-logstash-jvmOption.yaml"
+    },
+    {
+      "source": "CM-logstash-kafka-apm.yaml",
+      "published": "manifests/apm-kafka/CM-logstash-kafka-apm.yaml"
+    },
+    {
+      "source": "CM-ls-commonConfig.yaml",
+      "published": "manifests/logstash/CM-ls-commonConfig.yaml"
+    },
+    {
+      "source": "CM-nginx1.yaml",
+      "published": "manifests/access/CM-nginx1.yaml"
+    },
+    {
+      "source": "CM-nginx1_Network.yaml",
+      "published": "manifests/access/CM-nginx1_Network.yaml"
+    },
+    {
+      "source": "CM-nms_ls_pipeline.yaml",
+      "published": "manifests/logstash/CM-nms_ls_pipeline.yaml"
+    },
+    {
+      "source": "CM-python-ldap.yaml",
+      "published": "manifests/access/CM-python-ldap.yaml"
+    },
+    {
+      "source": "CM-welcome-page.yaml",
+      "published": "manifests/access/CM-welcome-page.yaml"
+    },
+    {
+      "source": "cpu_80_general.yaml",
+      "published": "components/alerting/cpu_80_general.yaml"
+    },
+    {
+      "source": "Dockerfile",
+      "published": "components/access/Dockerfile"
+    },
+    {
+      "source": "DS_Agent_Status.pl",
+      "published": "components/security/DS_Agent_Status.pl"
+    },
+    {
+      "source": "DS_Event_Alert.pl",
+      "published": "components/security/DS_Event_Alert.pl"
+    },
+    {
+      "source": "elastic-agent-alert/Dockerfile",
+      "published": "components/elastic-agent-alert/Dockerfile"
+    },
+    {
+      "source": "elastic-agent-alert/elastic_agent_monitor.py",
+      "published": "components/elastic-agent-alert/elastic_agent_monitor.py"
+    },
+    {
+      "source": "elastic-agent-alert/requirements.txt",
+      "published": "components/elastic-agent-alert/requirements.txt"
+    },
+    {
+      "source": "elastic-agent-alert/ticket_creater.py",
+      "published": "components/elastic-agent-alert/ticket_creater.py"
+    },
+    {
+      "source": "elastic-agent-alert/ticket_creater_config.yaml",
+      "published": "components/elastic-agent-alert/ticket_creater_config.yaml"
+    },
+    {
+      "source": "elasticagent-alert-dockerfile",
+      "published": "components/alerting/elasticagent-alert-dockerfile"
+    },
+    {
+      "source": "ES-Alert.yaml",
+      "published": "manifests/alerting/ES-Alert.yaml"
+    },
+    {
+      "source": "ES-apmserver-2kafka.yaml",
+      "published": "manifests/apm-kafka/ES-apmserver-2kafka.yaml"
+    },
+    {
+      "source": "ES-APMServer.yaml",
+      "published": "manifests/apm-kafka/ES-APMServer.yaml"
+    },
+    {
+      "source": "ES-coor1.yaml.disabled",
+      "published": "manifests/elasticsearch-legacy/ES-coor1.yaml.disabled"
+    },
+    {
+      "source": "ES-coor2.yaml.disabled",
+      "published": "manifests/elasticsearch-legacy/ES-coor2.yaml.disabled"
+    },
+    {
+      "source": "ES-coor3.yaml.disabled",
+      "published": "manifests/elasticsearch-legacy/ES-coor3.yaml.disabled"
+    },
+    {
+      "source": "ES-data1.yaml.disabled",
+      "published": "manifests/elasticsearch-legacy/ES-data1.yaml.disabled"
+    },
+    {
+      "source": "ES-deepsecurity-agent-collection.yaml",
+      "published": "manifests/security/ES-deepsecurity-agent-collection.yaml"
+    },
+    {
+      "source": "ES-ElasticAgent-Alert.yaml",
+      "published": "manifests/alerting/ES-ElasticAgent-Alert.yaml"
+    },
+    {
+      "source": "ES-FleetServer.yaml",
+      "published": "manifests/fleet/ES-FleetServer.yaml"
+    },
+    {
+      "source": "ES-func1.yaml.disabled",
+      "published": "manifests/elasticsearch-legacy/ES-func1.yaml.disabled"
+    },
+    {
+      "source": "ES-func2.yaml.disabled",
+      "published": "manifests/elasticsearch-legacy/ES-func2.yaml.disabled"
+    },
+    {
+      "source": "ES-func3.yaml.disabled",
+      "published": "manifests/elasticsearch-legacy/ES-func3.yaml.disabled"
+    },
+    {
+      "source": "ES-HeartBeat.yaml",
+      "published": "manifests/heartbeat/ES-HeartBeat.yaml"
+    },
+    {
+      "source": "ES-http_heartbeat.yaml",
+      "published": "manifests/heartbeat/ES-http_heartbeat.yaml"
+    },
+    {
+      "source": "ES-kafka.yaml",
+      "published": "manifests/apm-kafka/ES-kafka.yaml"
+    },
+    {
+      "source": "ES-kbn1.yaml",
+      "published": "manifests/kibana/ES-kbn1.yaml"
+    },
+    {
+      "source": "ES-logsatsh-kafka-apm.yaml",
+      "published": "manifests/apm-kafka/ES-logsatsh-kafka-apm.yaml"
+    },
+    {
+      "source": "ES-ls1.yaml",
+      "published": "manifests/logstash/ES-ls1.yaml"
+    },
+    {
+      "source": "ES-ngx1-Network.yaml",
+      "published": "manifests/access/ES-ngx1-Network.yaml"
+    },
+    {
+      "source": "ES-ngx1.yaml",
+      "published": "manifests/access/ES-ngx1.yaml"
+    },
+    {
+      "source": "ES-python-ldap.yaml",
+      "published": "manifests/access/ES-python-ldap.yaml"
+    },
+    {
+      "source": "ES-python-Network-ldap.yaml",
+      "published": "manifests/access/ES-python-Network-ldap.yaml"
+    },
+    {
+      "source": "ES-vSphere-integration.yaml",
+      "published": "manifests/vsphere/ES-vSphere-integration.yaml"
+    },
+    {
+      "source": "f5-metric-collection/f5_collection.py",
+      "published": "components/f5-metric-collection/f5_collection.py"
+    },
+    {
+      "source": "f5-metric-collection/ReadMe.md",
+      "disposition": "documentation rewritten in README and component guide"
+    },
+    {
+      "source": "IG-all.yaml",
+      "published": "manifests/access/IG-all.yaml"
+    },
+    {
+      "source": "IG-apm-2kafka.yaml",
+      "published": "manifests/apm-kafka/IG-apm-2kafka.yaml"
+    },
+    {
+      "source": "IG-apm.yaml",
+      "published": "manifests/apm-kafka/IG-apm.yaml"
+    },
+    {
+      "source": "IG-fleetserver.yaml",
+      "published": "manifests/fleet/IG-fleetserver.yaml"
+    },
+    {
+      "source": "IG-kibana-web.yaml",
+      "published": "manifests/kibana/IG-kibana-web.yaml"
+    },
+    {
+      "source": "IG-logstash-nms.yaml",
+      "published": "manifests/logstash/IG-logstash-nms.yaml"
+    },
+    {
+      "source": "LV-kafka.yaml",
+      "published": "manifests/apm-kafka/LV-kafka.yaml"
+    },
+    {
+      "source": "PV-coor1.yaml",
+      "published": "manifests/elasticsearch-legacy/PV-coor1.yaml"
+    },
+    {
+      "source": "PV-coor2.yaml",
+      "published": "manifests/elasticsearch-legacy/PV-coor2.yaml"
+    },
+    {
+      "source": "PV-coor3.yaml",
+      "published": "manifests/elasticsearch-legacy/PV-coor3.yaml"
+    },
+    {
+      "source": "PV-data1.yaml",
+      "published": "manifests/elasticsearch-legacy/PV-data1.yaml"
+    },
+    {
+      "source": "PV-func1.yaml",
+      "published": "manifests/elasticsearch-legacy/PV-func1.yaml"
+    },
+    {
+      "source": "PV-func2.yaml",
+      "published": "manifests/elasticsearch-legacy/PV-func2.yaml"
+    },
+    {
+      "source": "PV-func3.yaml",
+      "published": "manifests/elasticsearch-legacy/PV-func3.yaml"
+    },
+    {
+      "source": "PV-grafana1.yaml.disabled",
+      "published": "manifests/elasticsearch-legacy/PV-grafana1.yaml.disabled"
+    },
+    {
+      "source": "PV-kbn1.yaml",
+      "published": "manifests/kibana/PV-kbn1.yaml"
+    },
+    {
+      "source": "PVC-coor1.yaml",
+      "published": "manifests/elasticsearch-legacy/PVC-coor1.yaml"
+    },
+    {
+      "source": "PVC-coor2.yaml",
+      "published": "manifests/elasticsearch-legacy/PVC-coor2.yaml"
+    },
+    {
+      "source": "PVC-coor3.yaml",
+      "published": "manifests/elasticsearch-legacy/PVC-coor3.yaml"
+    },
+    {
+      "source": "PVC-data1.yaml",
+      "published": "manifests/elasticsearch-legacy/PVC-data1.yaml"
+    },
+    {
+      "source": "PVC-func1.yaml",
+      "published": "manifests/elasticsearch-legacy/PVC-func1.yaml"
+    },
+    {
+      "source": "PVC-func2.yaml",
+      "published": "manifests/elasticsearch-legacy/PVC-func2.yaml"
+    },
+    {
+      "source": "PVC-func3.yaml",
+      "published": "manifests/elasticsearch-legacy/PVC-func3.yaml"
+    },
+    {
+      "source": "PVC-kbn1.yaml",
+      "published": "manifests/kibana/PVC-kbn1.yaml"
+    },
+    {
+      "source": "README.md",
+      "disposition": "documentation rewritten in README and component guide"
+    },
+    {
+      "source": "SV-APMServer-2kafka.yaml",
+      "published": "manifests/apm-kafka/SV-APMServer-2kafka.yaml"
+    },
+    {
+      "source": "SV-APMServer.yaml",
+      "published": "manifests/apm-kafka/SV-APMServer.yaml"
+    },
+    {
+      "source": "SV-coor1.yaml",
+      "published": "manifests/elasticsearch-legacy/SV-coor1.yaml"
+    },
+    {
+      "source": "SV-coor2.yaml",
+      "published": "manifests/elasticsearch-legacy/SV-coor2.yaml"
+    },
+    {
+      "source": "SV-coor3.yaml",
+      "published": "manifests/elasticsearch-legacy/SV-coor3.yaml"
+    },
+    {
+      "source": "SV-data1.yaml",
+      "published": "manifests/elasticsearch-legacy/SV-data1.yaml"
+    },
+    {
+      "source": "SV-fleetserver.yaml",
+      "published": "manifests/fleet/SV-fleetserver.yaml"
+    },
+    {
+      "source": "SV-func1.yaml",
+      "published": "manifests/elasticsearch-legacy/SV-func1.yaml"
+    },
+    {
+      "source": "SV-func2.yaml",
+      "published": "manifests/elasticsearch-legacy/SV-func2.yaml"
+    },
+    {
+      "source": "SV-func3.yaml",
+      "published": "manifests/elasticsearch-legacy/SV-func3.yaml"
+    },
+    {
+      "source": "SV-kafka-apm.yaml",
+      "published": "manifests/apm-kafka/SV-kafka-apm.yaml"
+    },
+    {
+      "source": "SV-kbn1.yaml",
+      "published": "manifests/kibana/SV-kbn1.yaml"
+    },
+    {
+      "source": "SV-ls_nms.yaml",
+      "published": "manifests/logstash/SV-ls_nms.yaml"
+    },
+    {
+      "source": "SV-ngx1-Network.yaml",
+      "published": "manifests/access/SV-ngx1-Network.yaml"
+    },
+    {
+      "source": "SV-ngx1.yaml",
+      "published": "manifests/access/SV-ngx1.yaml"
+    },
+    {
+      "source": "SV-python-ldap.yaml",
+      "published": "manifests/access/SV-python-ldap.yaml"
+    },
+    {
+      "source": "SV-python-Network-ldap.yaml",
+      "published": "manifests/access/SV-python-Network-ldap.yaml"
+    }
+  ],
+  "syntax_repairs": [
+    {
+      "file": "alerting/CM-Alert-Poster-elasticagent/ticket_creater.py",
+      "change": "Restore missing dictionary-entry comma."
+    }
+  ],
+  "packaging_repairs": [
+    {
+      "file": "components/access/Dockerfile",
+      "change": "Align COPY with extracted LDAP source and supply missing dependency list."
+    },
+    {
+      "file": "components/alerting/CM-Alert-poster/ticket_creater.py",
+      "change": "Register the existing Apim_Alert strategy used by rule-049."
+    },
+    {
+      "files": [
+        "components/elastic-agent-alert/ticket_creater.py",
+        "components/alerting/CM-Alert-Poster-elasticagent/ticket_creater.py",
+        "components/alerting/CM-Alert-poster/ticket_creater.py"
+      ],
+      "change": "Resolve configuration beside the script for both ConfigMap and image layouts."
+    },
+    {
+      "file": "components/alerting/requirements.txt",
+      "change": "List dependencies of the original event processing script."
+    },
+    {
+      "file": "components/f5-metric-collection/requirements.txt",
+      "change": "List dependencies of the original F5 collection script."
+    },
+    {
+      "file": "manifests/heartbeat/ES-HeartBeat.yaml",
+      "change": "Place serviceAccountName in the Pod spec."
+    },
+    {
+      "file": "manifests/heartbeat/ES-http_heartbeat.yaml",
+      "change": "Place serviceAccountName in the Pod spec."
+    },
+    {
+      "file": "manifests/fleet/ES-FleetServer.yaml",
+      "change": "Align Fleet configuration subPath with the existing ConfigMap key."
+    }
+  ]
+}

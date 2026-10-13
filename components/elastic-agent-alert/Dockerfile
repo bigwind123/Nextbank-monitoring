@@ -1,0 +1,12 @@
+FROM __CFG_1521__
+
+WORKDIR /usr/src/app
+
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY ticket_creater.py  /usr/src/app/ticket_creater.py
+COPY ticket_creater_config.yaml /usr/src/app/ticket_creater_config.yaml
+COPY elastic_agent_monitor.py /usr/src/app/elastic_agent_monitor.py
+CMD [ "python", "elastic_agent_monitor.py" ]

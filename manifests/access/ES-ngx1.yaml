@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: observability
+  name: ngx1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ngx1
+  template:
+    metadata:
+      labels:
+        app: ngx1
+    spec:
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: ngx1-cm
+          defaultMode: 511
+      - name: welcome-page
+        configMap:
+          name: welcome-page-cm
+          defaultMode: 420
+      - name: welcome-images
+        persistentVolumeClaim:
+          claimName: observability-elk-kbn1
+      containers:
+      - name: ngx1
+        image: __CFG_1562__
+        ports:
+        - name: export-port-adm
+          containerPort: 8080
+          protocol: TCP
+        - name: export-port-ro
+          containerPort: 8081
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        imagePullPolicy: Always
+        command:
+        - nginx
+        args:
+        - -g
+        - daemon off;
+        volumeMounts:
+        - name: nginx-config
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+        - name: welcome-page
+          mountPath: /usr/share/nginx/html/welcome.html
+          subPath: welcome.html
+        - name: welcome-images
+          mountPath: /usr/share/nginx/images
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      imagePullSecrets:
+      - name: __CFG_1534__
+      schedulerName: default-scheduler

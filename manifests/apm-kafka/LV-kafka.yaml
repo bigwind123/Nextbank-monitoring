@@ -1,0 +1,23 @@
+apiVersion: local.storage.openshift.io/v1
+kind: LocalVolume
+metadata:
+  name: observability-kafka-lv
+  namespace: observability
+spec:
+  logLevel: Normal
+  managementState: Managed
+  nodeSelector:
+    nodeSelectorTerms:
+    - matchExpressions:
+      - key: kubernetes.io/hostname
+        operator: In
+        values:
+        - __CFG_1265__
+        - __CFG_1266__
+        - __CFG_1267__
+  storageClassDevices:
+  - devicePaths:
+    - /dev/sdb
+    fsType: xfs
+    storageClassName: __CFG_1553__
+    volumeMode: Filesystem

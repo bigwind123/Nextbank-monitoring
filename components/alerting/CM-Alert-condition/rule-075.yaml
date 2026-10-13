@@ -1,0 +1,25 @@
+name: rule-075
+type: frequency
+index: __CFG_0149__
+is_enabled: true
+num_events: 1
+realert:
+  minutes: 6
+terms_size: 50
+timeframe:
+  hours: 24
+timestamp_field: '@timestamp'
+filter:
+- query:
+    query_string:
+      query: __CFG_0150__
+alert:
+- command
+command:
+- /usr/local/bin/python
+- /opt/ticket_creater/ticket_creater.py
+- __CFG_0030__
+- CertificateRenewal
+- '%(host.name)s'
+- '%(@timestamp)s'
+- __CFG_0151__

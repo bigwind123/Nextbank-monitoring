@@ -1,0 +1,7 @@
+http.host: __CFG_0158__
+xpack.monitoring.elasticsearch.hosts:
+- __CFG_1499__
+xpack.management.elasticsearch.username: __CFG_0026__
+xpack.management.elasticsearch.password: __CFG_0001__
+queue.type: persisted
+queue.max_bytes: 8gb

@@ -1,0 +1,13 @@
+rules_folder: /opt/elastalert/rules
+run_every:
+  seconds: 10
+buffer_time:
+  minutes: 15
+es_host: __CFG_0025__
+es_port: 9200
+es_username: __CFG_0026__
+es_password: __CFG_0001__
+max_query_size: 5000
+writeback_index: __CFG_0027__
+alert_time_limit:
+  days: 2

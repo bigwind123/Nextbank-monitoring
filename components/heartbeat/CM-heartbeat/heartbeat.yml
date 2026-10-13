@@ -1,0 +1,37 @@
+heartbeat.config.monitors:
+  path: ${path.config}/monitors.d/*.yml
+  reload.enabled: false
+  reload.period: 5s
+heartbeat.monitors:
+- type: http
+  name: kibana web service
+  schedule: '@every 5s'
+  urls:
+  - __CFG_1275__
+- type: icmp
+  name: ELK CLUSTER
+  schedule: '@every 5s'
+  hosts:
+  - __CFG_0825__
+  - __CFG_0826__
+  - __CFG_0827__
+  - __CFG_0836__
+  - __CFG_0837__
+  - __CFG_0838__
+  - __CFG_0839__
+  - __CFG_0830__
+  - __CFG_0831__
+  - __CFG_0832__
+  - __CFG_0833__
+  - __CFG_0834__
+  - __CFG_0835__
+  - __CFG_0025__
+  - __CFG_0828__
+  - __CFG_0829__
+processors:
+- add_cloud_metadata: null
+- add_docker_metadata: null
+output.elasticsearch:
+  hosts: __CFG_1276__
+  username: __CFG_1277__
+  password: __CFG_0002__
